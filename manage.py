@@ -1,10 +1,16 @@
+# [Flask]
 from flask_migrate import Migrate, MigrateCommand
 from flask_script import Manager
+
+# [App]
 from backend import db
 from backend.app import create_app
 
-app = create_app('development')
+# [Python]
+import os
 
+
+app = create_app(os.getenv('FLASK_CONFIG') or 'default')
 migrate = Migrate(app, db)
 
 manager = Manager(app)

@@ -16,8 +16,13 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 
 class Config:
+    APP_NAME = "Libre Food Bank"
+    APP_ID = ""
+    SUPPORT_EMAIL = ""
+    VERSION = "1.0.0"
+    MAIL_SERVER = ""
     SECRET_KEY = os.environ.get('SECRET_KEY')
-    STATIC_FOLDER = os.path.join(os.pardir, 'frontend/dist')
+    STATIC_FOLDER = '../../frontend/build'
 
 
 class DevelopmentConfig(Config):
@@ -27,7 +32,7 @@ class DevelopmentConfig(Config):
         'sqlite:///' + os.path.join(basedir, 'data-dev.sqlite')
 
 
-class TestingConfig (Config):
+class TestingConfig(Config):
     TESTING = True
     SQLALCHEMY_DATABASE_URI = os.environ.get('DEV_DATABASE_URL') or \
         'sqlite:///' + os.path.join(basedir, 'data-test.sqlite')
@@ -40,7 +45,7 @@ class ProductionConfig(Config):
 
 config = {
     'development': DevelopmentConfig,
-    'testing':	TestingConfig,
+    'testing': TestingConfig,
     'production': ProductionConfig,
     'default': DevelopmentConfig
 }

@@ -1,50 +1,64 @@
-import logging
-import os
-
+# [Flask]
 from flask import Flask
-from werkzeug.utils import import_string
+from flask_mail import Mail
+
+# [App]
 from . import config, db, io
+from .routes.dafault import DEFAULT
+
+# [Python]
+import logging, os
+
 
 logger = logging.getLogger(__name__)
+mail = Mail()
 
 
-def create_app(environment):
+def create_app(config_name):
     """Creates a new Flask application and initialize application."""
 
-    config_map = {
-        'development': config.DevelopmentConfig(),
-        'testing': config.TestingConfig(),
-        'production': config.ProductionConfig(),
-    }
+    # Default application
+    app = Flask(__name__, static_url_path=None)
+    
+    # Import config options from config.py
+    app.config.from_object(config.config[config_name])
 
-    config_obj = config_map[environment.lower()]
-
-    app = Flask(__name__)
-    app.config.from_object(config_obj)
+    # SET URL MAPPINGS TO BE NON STRICT
     app.url_map.strict_slashes = False
-    app.add_url_rule('/', 'home', home)
+    
+    # SET APPLICATION SETTINGS
+    app.secret_key = app.config["SECRET_KEY"]
+    app.appname = app.config["APP_NAME"]
+    app.version = app.config["VERSION"]
+    app.support_email = app.config["SUPPORT_EMAIL"]
+    
+    # Setup flask mailing server
+    mail.init_app(app)
 
-    register_blueprints(app)
+    # Register application routes
+    app.register_blueprint(DEFAULT)
 
+    # Link application to database
     db.init_app(app)
+    
+    # Initialize flask io to be used
     io.init_app(app)
 
     return app
 
 
-def home():
-    return dict(name='Flask REST API')
-
-
 def register_blueprints(app):
-    root_folder = 'backend'
+    """Register bundle views."""
+    
+    # disable strict_slashes on all routes by default
+    if not app.config.get('STRICT_SLASHES', False):
+        app.url_map.strict_slashes = False
 
-    for dir_name in os.listdir(root_folder):
-        module_name = root_folder + '.' + dir_name + '.views'
-        module_path = os.path.join(root_folder, dir_name, 'views.py')
-
-        if os.path.exists(module_path):
-            module = import_string(module_name)
-            obj = getattr(module, 'app', None)
-            if obj:
-                app.register_blueprint(obj)
+    # register blueprints
+    for bundle in app.bundles:
+        for blueprint in bundle.blueprints:
+            # rstrip '/' off url_prefix because views should be declaring their
+            # routes beginning with '/', and if url_prefix ends with '/', routes
+            # will end up looking like '/prefix//endpoint', which is no good
+            url_prefix = (blueprint.url_prefix or '').rstrip('/')
+            app.register_blueprint(blueprint, url_prefix=url_prefix)
