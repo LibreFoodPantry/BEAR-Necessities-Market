@@ -56,7 +56,7 @@ const App = () => (
         <Wrapper>
 
             <Logo>
-                <img src={logo} alt={''}/>
+                <img src={logo} alt=''/>
             </Logo>
 
             <Title>
