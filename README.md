@@ -97,7 +97,7 @@ $ pip install -r requirements.txt
 $ export DEV_DATABASE_URL="sqlite:///galacticempire"
 
 --> Run db migrations
-$ python manage.py create_db
+$ python manage.py db init
 $ python manage.py db upgrade
 $ python manage.py db migrate
 
