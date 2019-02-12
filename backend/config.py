@@ -21,13 +21,13 @@ class Config:
     SUPPORT_EMAIL = ""
     VERSION = "1.0.0"
     MAIL_SERVER = ""
-    SECRET_KEY = os.environ.get('SECRET_KEY')
+    SECRET_KEY = os.environ.get('SECRET_KEY') or '4c4v4f4vf44$'
     STATIC_FOLDER = '../../frontend/build'
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    SECRET_KEY = os.environ.get('SECRET_KEY') or 'secret_key_here'
     SQLALCHEMY_DATABASE_URI = os.environ.get('DEV_DATABASE_URL') or \
         'sqlite:///' + os.path.join(basedir, 'data-dev.sqlite')
 

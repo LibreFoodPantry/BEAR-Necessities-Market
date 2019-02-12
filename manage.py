@@ -1,6 +1,7 @@
 # [Flask]
 from flask_migrate import Migrate, MigrateCommand
 from flask_script import Manager
+from flask_cors import CORS
 
 # [App]
 from backend import db
@@ -11,6 +12,7 @@ import os
 
 
 app = create_app(os.getenv('FLASK_CONFIG') or 'default')
+CORS(app)
 migrate = Migrate(app, db)
 
 manager = Manager(app)

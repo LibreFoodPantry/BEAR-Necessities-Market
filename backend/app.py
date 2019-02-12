@@ -18,7 +18,7 @@ def create_app(config_name):
     """Creates a new Flask application and initialize application."""
 
     # Default application
-    app = Flask(__name__, static_url_path=None)
+    app = Flask(__name__, static_url_path="")
     
     # Import config options from config.py
     app.config.from_object(config.config[config_name])
@@ -31,6 +31,8 @@ def create_app(config_name):
     app.appname = app.config["APP_NAME"]
     app.version = app.config["VERSION"]
     app.support_email = app.config["SUPPORT_EMAIL"]
+    
+    app.static_folder = '../frontend/build'
     
     # Setup flask mailing server
     mail.init_app(app)
