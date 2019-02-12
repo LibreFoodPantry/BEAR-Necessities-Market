@@ -1,2 +1,4 @@
 .DS_STORE
 frontend/node_modules
+env
+.idea
