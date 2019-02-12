@@ -1,5 +1,3 @@
-
-
 ## Development Workflow
 * After cloning LIBRE DE FOOD, run yarn to fetch its dependencies. Then, you can run several commands:
 
