@@ -93,7 +93,7 @@ $ ./activate
 $ pip install -r requirements.txt
 
 --> Set database url in your local environment
---> backend/config.py/DevelopmentConfig.DEV_DATABASE_URL
+--> backend/config.py/DevelopmentConfig.DEV_DATABASE_URL"
 $ export DEV_DATABASE_URL="sqlite:///galacticempire
 
 --> Run db migrations
