@@ -1,4 +1,4 @@
-# Rilla, Inc Coding Standards
+# Libre Food Pantry Coding Standards
 
 
 ## Code style
