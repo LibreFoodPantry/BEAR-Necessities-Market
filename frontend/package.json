@@ -1,5 +1,5 @@
 {
-    "name": "react-bolt",
+    "name": "libre-food-pantry",
     "version": "1.0.0",
     "description": "⚡ The most simple & robust boilerplate for your React projects.",
     "main": "src/index.js",
@@ -24,16 +24,16 @@
         "starter",
         "boilerplate"
     ],
-    "author": "Leonardo Maldonado <leonardomso11@gmail.com>",
+    "author": "Michael Hawes <mhawes24@gmail.com>",
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/leonardomso/react-bolt.git"
+        "url": "git+https://github.com/hawzie197/Libre-Food-Pantry.git"
     },
     "bugs": {
-        "url": "https://github.com/leonardomso/react-bolt/issues"
+        "url": "https://github.com/hawzie197/Libre-Food-Pantry/issues"
     },
-    "homepage": "https://github.com/leonardomso/react-bolt#readme",
+    "homepage": "https://github.com/hawzie197/Libre-Food-Pantry#readme",
     "devDependencies": {
         "@babel/cli": "^7.2.3",
         "@babel/core": "^7.2.2",

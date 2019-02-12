@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import logo from '../../public/logo.svg';
 
 const Container = styled.div`
     display: flex;
@@ -14,20 +15,36 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     justify-content: space-evenly;
     width: 500px;
     height: 40%;
+`;
+
+const Logo = styled.h1`
+    height: 130px;
+    width: 130px;
+    margin-bottom: 20px;
 `;
 
 const Title = styled.h1`
     color: black;
     font-size: 2.5rem;
     font-weight: 700;
+    margin-bottom: 20px;
+`;
+
+const Subtitle = styled.h3`
+    color: black;
+    font-size: 1.0rem;
+    font-weight: 400;
+    margin-bottom: 40px;
 `;
 
 const Paragraph = styled.p`
     color: black;
-    font-size: 1rem;
+    font-size: 0.9rem;
+    padding: 5px;
 `;
 
 const Link = styled.a`
@@ -37,19 +54,39 @@ const Link = styled.a`
 const App = () => (
     <Container>
         <Wrapper>
+
+            <Logo>
+                <img src={logo}/>
+            </Logo>
+
             <Title>
-                <span role="img" aria-label="Bolt">
-                    ⚡
-                </span>{' '}
-                React Bolt
+
+                Libre Food Pantry
             </Title>
-            <Paragraph>The most simple and robust React boilerplate.</Paragraph>
+
+            <Subtitle>Below are some helpful links to get you started.</Subtitle>
+
             <Paragraph>
-                Read the article{' '}
-                <Link href="soon" target="_blank">
-                    here.
+                Read the {' '}
+                <Link href="https://github.com/hawzie197/Libre-Food-Pantry/blob/master/CODING_STANDARDS.md" target="_blank">
+                    CODING_STANDARDS.
                 </Link>
             </Paragraph>
+
+            <Paragraph>
+                Understand the {' '}
+                <Link href="https://github.com/hawzie197/Libre-Food-Pantry/blob/master/CHANGELOG.md" target="_blank">
+                    CHANGELOG.
+                </Link>
+            </Paragraph>
+
+            <Paragraph>
+                Know the {' '}
+                <Link href="https://github.com/hawzie197/Libre-Food-Pantry/blob/master/LICENSE.md" target="_blank">
+                    LICENSE.
+                </Link>
+            </Paragraph>
+
         </Wrapper>
     </Container>
 );
