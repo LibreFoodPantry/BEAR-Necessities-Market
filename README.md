@@ -90,8 +90,8 @@ Install virtualenv:
 # Application Download & Installation
 
 ```
-$ git clone [GITHUB REPO LINK]
-$ cd libre-food-pantry
+$ git clone https://github.com/LibreFoodPantry/BEAR-Necessities-Market.git
+$ cd BEAR-Necessities-Market
 $ virtualenv env
 
 ACTIVATE_MAC_ENV:
