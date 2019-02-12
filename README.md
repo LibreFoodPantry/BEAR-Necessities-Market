@@ -1,4 +1,4 @@
-# Welcome to Libre Food Pantry
+# Welcome to BEAR-Necessities-Market
 
 ## [React v16](https://facebook.github.io/react/) Frontend
 
@@ -108,7 +108,7 @@ $ python manage.py runserver
 --> follow steps to start virtual env again
 
 --> Setup front end react server
-$ cd libre-food-pandtry/frontend
+$ cd BEAR-Necessities-Market/frontend
 $ nvm use 10
 $ yarn install
 
