@@ -29,53 +29,65 @@ Entry point is at `frontend/src/index.js`.
 The backend is structured using the [Application Factory Pattern](http://flask.pocoo.org/docs/0.12/patterns/appfactories/), in conjunction with a little bit of declarative configuration in `backend/config.py` (for ordered registration of extensions, and auto-detection of views, models, serializers, model admins and cli commands). The entry point is the `create_app()` method in `backend/app.py` (`wsgi.py` in production).
 
 
-# Requirements
+# Requirements & Global Environment setup
 
+* git bash
 * python 3.5+
 * pip
 * npm -- latest
 * node -- latest
 * yarn
-* git bash
 * virtualenv
 
 
-Install Python 3:
+First things first, if you are using Windows, install [git bash](https://gitforwindows.org/)
 
-    https://www.python.org/downloads/
-    python -v ( > 3.5 )
-
-
-Install pip (MAC):
-
-    sudo easy_install pip
+If you are on MAC (Best OS in the world) just open terminal and you are all set to go.
 
 
-Install pip (WINDOWS):
-
-    python -m pip install --upgrade pip
-
-
-Install nvm (MAC):
-
-    curl https://raw.githubusercontent.com/creationix/nvm/v0.25.0/install.sh | bash
-    close terminal and reopen
-    nvm --version
+Install Python [3.5+](https://www.python.org/downloads/)
+    After download, verify your python version by running: `$ python --version`
 
 
-Install nvm (WINDOWS):
+Check to see if you have pip by running: `$ pip --version`
+If you do not have pip, follow the steps below:
 
-    https://github.com/coreybutler/nvm-windows/releases
-    close terminal and reopen
-    nvm --version
+
+    Install pip (MAC):
     
+    $ sudo easy_install pip
+    
+    
+    Install pip (WINDOWS):
+    
+    $ python -m pip install --upgrade pip
+
+
+Install [Node & NPM (Latest versions)](https://nodejs.org/en/download/)
+Verify you have node >= 8.0.0: `$ node --version`
+Verify you have npm >= 5.0.0: `$ npm -v`
+    
+
+Install Yarn package manager
+
+If you are on Mac:
+* Install homebrew: `$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+* `$ brew install yarn`   
+* Close and re open terminal
+* Run `$ yarn --version` 
+
+
+If you are on Windows:
+* Install yarn from: [Yarn Downloads](https://yarnpkg.com/en/)
+* After install close and reopen bash terminal
+
+
+
 Install virtualenv:
+`$ pip install virtualenv`
 
 
-    pip install virtualenv
-
-
-# Setup & Installation
+# Application Download & Installation
 
 ```
 $ git clone [GITHUB REPO LINK]
@@ -117,6 +129,18 @@ $ yarn run build --watch
 
 
 NAVIGATE TO localhost:5000 on your web browser and you should see the application running.
+```
+
+## Running Flask Unittests
+```
+$ cd BEAR-Necessities-Market/backend
+$ python manage.py test
+```
+
+## Running React E2E tests
+```
+$ cd BEAR-Necessities-Market/frontend
+$ yarn test
 ```
 
 
