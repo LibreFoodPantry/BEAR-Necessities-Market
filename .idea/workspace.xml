@@ -30,31 +30,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="CODING_STANDARDS.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CODING_STANDARDS.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="636">
-                <caret line="351" column="0" lean-forward="true" selection-start-line="351" selection-start-column="0" selection-end-line="351" selection-end-column="0" />
-                <folding>
-                  <marker date="1549946405986" expanded="true" signature="9709:9838" ph="{...}" />
-                  <marker date="1549946405986" expanded="true" signature="9743:9836" ph="{...}" />
-                  <marker date="1549946405986" expanded="true" signature="9800:9832" ph="{...}" />
-                  <marker date="1549946405986" expanded="true" signature="9875:9896" ph="{...}" />
-                  <marker date="1549946405986" expanded="true" signature="9918:9946" ph="{...}" />
-                  <marker date="1549946405986" expanded="true" signature="9980:10004" ph="{...}" />
-                  <marker date="1549946405986" expanded="true" signature="10348:10405" ph="{...}" />
-                  <marker date="1549946405986" expanded="true" signature="10382:10403" ph="{...}" />
-                  <marker date="1549946405986" expanded="true" signature="10450:10476" ph="{...}" />
-                  <marker date="1549946405986" expanded="true" signature="10761:10830" ph="{...}" />
-                  <marker date="1549946405986" expanded="true" signature="10784:10828" ph="{...}" />
-                </folding>
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
@@ -71,18 +46,8 @@
       <file leaf-file-name="requirements.txt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/requirements.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="16" lean-forward="false" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/config.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="30" column="62" lean-forward="false" selection-start-line="30" selection-start-column="46" selection-end-line="30" selection-end-column="62" />
+            <state relative-caret-position="60">
+              <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -599,8 +564,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="16" lean-forward="false" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
+        <state relative-caret-position="60">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
           <folding />
         </state>
       </provider>
