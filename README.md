@@ -113,7 +113,7 @@ $ nvm use 10
 $ yarn install
 
 --> The watch flag allows the systems to listen for changes and rebuild the application
-$ yarn build --watch 
+$ yarn run build --watch 
 
 
 NAVIGATE TO localhost:5000 on your web browser and you should see the application running.
