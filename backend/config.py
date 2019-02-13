@@ -24,21 +24,34 @@ class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY') or '4c4v4f4vf44$'
     STATIC_FOLDER = '../../frontend/build'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    JWT_AUTH_USERNAME_KEY = 'email'
+    JWT_AUTH_HEADER_PREFIX = 'Token'
+    CORS_ORIGIN_WHITELIST = [
+        'http://0.0.0.0:4100',
+        'http://localhost:4100',
+        'http://0.0.0.0:8000',
+        'http://localhost:8000',
+        'http://0.0.0.0:4200',
+        'http://localhost:4200',
+        'http://0.0.0.0:4000',
+        'http://localhost:4000',
+    ]
+    JWT_HEADER_TYPE = 'Token'
 
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DEV_DATABASE_URL') or \
-        'sqlite:///' + os.path.join(basedir, 'data-dev.sqlite')
+    ENV = 'dev'
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'data-dev.sqlite')
 
 
 class TestingConfig(Config):
     TESTING = True
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DEV_DATABASE_URL') or \
-        'sqlite:///' + os.path.join(basedir, 'data-test.sqlite')
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'data-test.sqlite')
 
 
 class ProductionConfig(Config):
+    ENV = 'prod'
     SQLALCHEMY_DATABASE_URI = os.environ.get('PRODUCTION_DATABASE_URL') or \
         'sqlite:///' + os.path.join(basedir, 'data.sqlite')
 

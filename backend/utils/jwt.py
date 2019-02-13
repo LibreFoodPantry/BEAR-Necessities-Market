@@ -1,6 +1,5 @@
-# -*- coding: utf-8 -*-
 """Helper utilities and decorators."""
-from conduit.user.models import User  # noqa
+from backend.models.users import User
 
 
 def jwt_identity(payload):
