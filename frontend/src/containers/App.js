@@ -26,7 +26,7 @@ class App extends React.Component {
 
     render() {
         const {children} = this.props;
-        const { navDrawerOpen } = this.state;
+        const {navDrawerOpen} = this.state;
         const paddingLeftDrawerOpen = 236;
 
         const styles = {
