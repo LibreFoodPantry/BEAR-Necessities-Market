@@ -1,5 +1,5 @@
 # Welcome to BEAR-Necessities-Market
-[![GitHub license](https://img.shields.io/aur/license/:packageName.svg)](https://github.com/LibreFoodPantry/BEAR-Necessities-Market/blob/master/LICENSE.md)
+[![GitHub license](https://img.shields.io/badge/license-GPL%20V3-blue.svg)](https://github.com/LibreFoodPantry/BEAR-Necessities-Market/blob/master/LICENSE.md)
 
 ## [React v16](https://facebook.github.io/react/) Frontend
 
