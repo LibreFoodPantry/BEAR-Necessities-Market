@@ -40,13 +40,18 @@ def create_app(config_name):
     # Register application routes
     app.register_blueprint(DEFAULT)
 
-    # Link application to database
-    db.init_app(app)
+    register_extensions(app)
     
     # Initialize flask io to be used
     io.init_app(app)
 
     return app
+
+
+def register_extensions(app):
+    """Register Flask extensions."""
+    db.init_app(app)
+    migrate.init_app(app, db)
 
 
 def register_blueprints(app):
