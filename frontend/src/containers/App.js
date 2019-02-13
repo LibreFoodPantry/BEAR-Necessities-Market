@@ -1,6 +1,5 @@
 import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import {withWidth} from 'material-ui/utils/withWidth';
 import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import LeftDrawer from '../components/LeftDrawer';
@@ -60,4 +59,4 @@ App.propTypes = {
     children: PropTypes.element.isRequired,
 };
 
-export default withWidth()(App);
+export default App;
