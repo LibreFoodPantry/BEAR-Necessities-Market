@@ -7,4 +7,5 @@ migrations/
 *.sqlite
 *.pyc
 frontend/build/
+*.pytest
 
