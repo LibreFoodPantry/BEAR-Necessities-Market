@@ -6,7 +6,7 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import DashboardIcon from "@material-ui/icons/Dashboard";
-import SettingsIcon from "@material-ui/icons/Settings";
+import GroupIcon from "@material-ui/icons/Group";
 import { Link } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
 
@@ -61,7 +61,7 @@ const Sidebar = props => {
         <Link to="/users">
           <ListItem button>
             <ListItemIcon>
-              <SettingsIcon />
+              <GroupIcon />
             </ListItemIcon>
             <ListItemText primary="Users" />
           </ListItem>
