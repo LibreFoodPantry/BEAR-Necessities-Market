@@ -7,4 +7,5 @@ galacticempire*
 *.pyc
 frontend/build/
 *.pytest
-
+.vagrant/
+venv/
