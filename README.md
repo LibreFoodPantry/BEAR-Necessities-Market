@@ -105,17 +105,15 @@ $ ./activate
 --> Install server dependencies
 $ pip install -r requirements.txt
 
---> Set database url in your local environment
---> backend/config.py/DevelopmentConfig.DEV_DATABASE_URL
-$ export DEV_DATABASE_URL="sqlite:///galacticempire"
+--> Tell Flask to run the manage.py with $ flask
+$ export FLASK_APP=manage.py
 
 --> Run db migrations
-$ python manage.py db init
-$ python manage.py db upgrade
-$ python manage.py db migrate
+$ flask db init
+$ flask db migrate
 
 --> Start backend server
-$ python manage.py runserver
+$ flask run
 
 --> Open a second terminal window
 --> follow steps to start virtual env again
@@ -135,7 +133,7 @@ NAVIGATE TO localhost:5000 on your web browser and you should see the applicatio
 ## Running Flask Unittests
 ```
 $ cd BEAR-Necessities-Market/backend
-$ python manage.py test
+$ flask test
 ```
 
 ## Running React E2E tests
