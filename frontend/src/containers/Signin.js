@@ -18,7 +18,7 @@ const styles = () => ({
     width: '350px',
     height: '300px'
   }
-})
+});
 
 const Signin = (props) => {
   const { classes } = props
@@ -29,14 +29,14 @@ const Signin = (props) => {
       </Card>
     </div>
   )
-}
+};
 
 const mapDispatchToProps = dispatch => bindActionCreators(
   {
     login: () => authenticate()
   },
   dispatch
-)
+);
 
 export default connect(
   null,
