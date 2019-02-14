@@ -1,6 +1,5 @@
 """Extensions module. Each extension is initialized in the app factory located in app.py."""
 
-from flask_cors import CORS
 from flask_jwt_extended import JWTManager
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy, Model
@@ -36,5 +35,4 @@ class CRUDMixin(Model):
 
 db = SQLAlchemy(model_class=CRUDMixin)
 migrate = Migrate()
-cors = CORS()
 jwt = JWTManager()

@@ -6,3 +6,5 @@ galacticempire*
 migrations/
 *.sqlite
 *.pyc
+frontend/build/
+

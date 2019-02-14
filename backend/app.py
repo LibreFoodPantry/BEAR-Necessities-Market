@@ -1,13 +1,15 @@
 # [Flask]
 from flask import Flask
 from flask_mail import Mail
+from flask_jwt import JWT
+from flask_restful import Api
 
 # [App]
-from backend.extensions import db, migrate, jwt, cors
+from backend.extensions import db, migrate, jwt
 from backend.config import ProductionConfig
-from backend.routes import DEFAULT, USERS
+from backend.resources import DEFAULT
 from backend import commands
-from backend import models
+from backend.resources.users import UsersDetail, UsersList
 
 # [Python]
 import logging
@@ -27,32 +29,36 @@ def create_app(config_object=ProductionConfig):
 
     app.static_folder = '../frontend/build'
     
-    # Setup flask mailing server
-    mail.init_app(app)
+    # Let flask know to serve react
+    app.register_blueprint(DEFAULT)
 
-    register_blueprints(app)
+    api = Api(app)
+    # JWT(app)
+    
+    register_resources(api)
     register_extensions(app)
     register_commands(app)
+    create_mail_server(app)
     
-
     return app
 
 
 def register_extensions(app):
     """Register Flask extensions."""
-    db.init_app(app)
-    migrate.init_app(app, db)
+    
+    # Register database and models
+    with app.app_context():
+        db.init_app(app)
+        db.create_all()
+    
+    # Register JWT helper
     jwt.init_app(app)
 
 
-def register_blueprints(app):
-    """Register Flask blueprints."""
-    origins = app.config.get('CORS_ORIGIN_WHITELIST', '*')
-    cors.init_app(DEFAULT, origins=origins)
-    cors.init_app(USERS, origins=origins)
-
-    app.register_blueprint(DEFAULT)
-    app.register_blueprint(USERS)
+def register_resources(api):
+    """Register api resources."""
+    api.add_resource(UsersDetail, '/users/<int:pk>')
+    api.add_resource(UsersList, '/users')
 
 
 def register_commands(app):
@@ -60,3 +66,8 @@ def register_commands(app):
     app.cli.add_command(commands.test)
     app.cli.add_command(commands.lint)
     app.cli.add_command(commands.clean)
+    
+
+def create_mail_server(app):
+    """ Setup flask mailing server """
+    mail.init_app(app)
