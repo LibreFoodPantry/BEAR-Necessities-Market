@@ -3,7 +3,6 @@ frontend/node_modules
 env
 .idea
 galacticempire*
-migrations/
 *.sqlite
 *.pyc
 frontend/build/

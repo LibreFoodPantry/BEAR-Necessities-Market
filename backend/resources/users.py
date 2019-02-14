@@ -18,9 +18,10 @@ class UsersDetail(Resource):
         if item:
             item.delete_from_db()
 
-            return {'message': 'user has been deleted'}
+            return {'message': 'User has been deleted'}
 
 
 class UsersList(Resource):
+    
     def get(self):
         return {'users': [user.json() for user in UserModel.query.all()]}  # More pythonic
