@@ -7,9 +7,6 @@ WSGI config for this project.
 It exposes the WSGI callable as a module-level variable named ``application``.
 """
 
-env = os.environ.get('APP_ENV')
+from backend.config import ProductionConfig
 
-if not env:
-    raise Exception('APP_ENV not found.')
-
-application = create_app(env)
+application = create_app(ProductionConfig)
