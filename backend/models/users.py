@@ -9,16 +9,17 @@ class UserModel(db.Model):
     email = db.Column(db.String(120))
     password = db.Column(db.String(80))
 
-    def __init__(self, username, password):
+    def __init__(self, username, email, password):
         self.username = username
         self.password = password
+        self.email = email
 
     def save_to_db(self):
         db.session.add(self)
         db.session.commit()
         
     def json(self):
-        return {'id': self.id, 'username': self.username}
+        return {'id': self.id, 'username': self.username, 'email': self.email}
 
     @classmethod
     def find_by_username(cls, username):
