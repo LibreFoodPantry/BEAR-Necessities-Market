@@ -11,7 +11,7 @@ python:
   - 3.7
 
 # Command to install dependencies
-install: pip install -r requirements --no-cache-dir
+install: pip install -r requirements.txt --no-cache-dir
 
 # Declare our environment variables
 before_script:
