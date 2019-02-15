@@ -1,0 +1,22 @@
+# Config file for automatic testing at travis-ci.org
+
+# http://docs.travis-ci.com/user/migrating-from-legacy/
+sudo: false
+
+# Configure language and versions
+language: python
+python:
+  - 3.5
+  - 3.6
+  - 3.7
+
+# Command to install dependencies
+install: pip install -r requirements --no-cache-dir
+
+# Declare our environment variables
+before_script:
+  - export FLASK_APP=manage.py
+  - export FLASK_DEBUG=1
+
+# Run all flask tests
+script: flask test
