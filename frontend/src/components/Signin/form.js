@@ -43,12 +43,14 @@ const SigninForm = props => {
         className={classes.inputRoot}
         name="username"
         type="email"
+        placeholder="Email"
         component={TextField}
       />
       <Field
         className={classes.inputRoot}
         name="password"
         type="password"
+        placeholder="Password"
         component={TextField}
       />
       <div className={classes.buttons}>
