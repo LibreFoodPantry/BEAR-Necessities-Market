@@ -1,5 +1,5 @@
 import os
-import config
+from backend.config import core
 
 TESTING = True
-SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(config.basedir, 'data-test.sqlite')
+SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(core.basedir, 'data-test.sqlite')

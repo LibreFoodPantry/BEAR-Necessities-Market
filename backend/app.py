@@ -6,31 +6,40 @@ from flask_restful import Api
 
 # [App]
 from backend.extensions import db, migrate, jwt
+# from backend.config import ProductionConfig
 from backend.resources import DEFAULT
 from backend import commands
 from backend.resources.users import UsersDetail, UsersList
 
+# [Python]
+import logging
 
+logger = logging.getLogger(__name__)
 mail = Mail()
 
 
-# Default application
-app = Flask(__name__)
-app.config.from_envvar('SETTINGS')
-app.url_map.strict_slashes = False
-
-app.static_folder = '../frontend/build'
-
-# Let flask know to serve react
-app.register_blueprint(DEFAULT)
-
-api = Api(app)
-# JWT(app)
-
-register_resources(api)
-register_extensions(app)
-register_commands(app)
-create_mail_server(app)
+def create_app():
+    """Creates a new Flask application and initialize application."""
+    
+    # Default application
+    app = Flask(__name__, static_url_path="")
+    app.config.from_envvar("SETTINGS")
+    app.url_map.strict_slashes = False
+    
+    app.static_folder = '../frontend/build'
+    
+    # Let flask know to serve react
+    app.register_blueprint(DEFAULT)
+    
+    api = Api(app)
+    # JWT(app)
+    
+    register_resources(api)
+    register_extensions(app)
+    register_commands(app)
+    create_mail_server(app)
+    
+    return app
 
 
 def register_extensions(app):
@@ -57,7 +66,7 @@ def register_commands(app):
     app.cli.add_command(commands.test)
     app.cli.add_command(commands.lint)
     app.cli.add_command(commands.clean)
-    
+
 
 def create_mail_server(app):
     """ Setup flask mailing server """

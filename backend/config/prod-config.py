@@ -1,6 +1,6 @@
 import os
-import config
+from backend.config import core
 
 ENV = 'prod'
 SQLALCHEMY_DATABASE_URI = os.environ.get('PRODUCTION_DATABASE_URL') or \
-    'sqlite:///' + os.path.join(config.basedir, 'data.sqlite')
+    'sqlite:///' + os.path.join(core.basedir, 'data.sqlite')
