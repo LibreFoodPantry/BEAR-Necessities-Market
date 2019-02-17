@@ -1,0 +1,14 @@
+version: '3.3'
+services:
+ web_dev:
+  build: .
+  ports:
+    - "4000:4000"
+  volumes:
+    - .:/app
+  environment:
+    - FLASK_DEBUG=1
+    - ENV=development
+    - SETTINGS=.backend/config/dev-config.py
+    - PORT=4000
+    - DB=./backend/config/dev-config:SQLALCHEMY_DATABASE_URI
