@@ -1,5 +1,6 @@
 # Welcome to BEAR-Necessities-Market
 [![GitHub license](https://img.shields.io/badge/license-GPL%20V3-blue.svg)](https://github.com/LibreFoodPantry/BEAR-Necessities-Market/blob/master/LICENSE.md)
+[![Build Status]()
 
 ## [React v16.8.1](https://facebook.github.io/react/) Frontend
 - [material-ui](https://material-ui.com/) for drop in material components
