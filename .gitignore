@@ -1,6 +1,5 @@
 ## Python.gitignore
 
-
 # Initial project ignores
 .DS_STORE
 frontend/node_modules
