@@ -5,11 +5,11 @@ from flask_jwt import JWT
 from flask_restful import Api
 
 # [App]
-from backend.extensions import db, migrate, jwt
+from extensions import db, migrate, jwt
 # from backend.config import ProductionConfig
-from backend.resources import DEFAULT
-from backend import commands
-from backend.resources.users import UsersDetail, UsersList
+from resources import DEFAULT
+import commands
+from resources.users import UsersDetail, UsersList
 
 # [Python]
 import logging

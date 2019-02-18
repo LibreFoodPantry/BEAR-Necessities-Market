@@ -3,7 +3,7 @@ import os
 import sys
 # import logger
 
-from backend.app import create_app
+from app import create_app
 
 ROOT_PATH = os.path.dirname(os.path.realpath(__file__))
 os.environ.update({'ROOT_PATH': ROOT_PATH})

@@ -2,7 +2,7 @@
 from flask import Blueprint
 
 # [App]
-from backend.config import core
+from config import core
 
 DEFAULT = Blueprint('default', __name__, static_folder=core.STATIC_FOLDER)
 

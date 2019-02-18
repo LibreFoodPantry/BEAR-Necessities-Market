@@ -1,5 +1,5 @@
 import os
-from backend.config import core
+from config import core
 
 DEBUG = True
 ENV = 'development'

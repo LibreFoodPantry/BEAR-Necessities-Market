@@ -1,5 +1,5 @@
 import os
-from backend.config import core
+from config import core
 
 ENV = 'prod'
 SQLALCHEMY_DATABASE_URI = os.environ.get('PRODUCTION_DATABASE_URL') or \

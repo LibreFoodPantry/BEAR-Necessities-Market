@@ -1,6 +1,6 @@
 from flask_restful import Resource, reqparse
 from flask_jwt import jwt_required
-from backend.models.users import UserModel
+from models.users import UserModel
 
 
 class UsersDetail(Resource):
