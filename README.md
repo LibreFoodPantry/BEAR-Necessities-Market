@@ -108,8 +108,7 @@ $ pip install -r requirements.txt --no-cache-dir
 $ export FLASK_APP=manage.py
 
 --> Run db migrations
-$ flask db init
-$ flask db migrate
+$ flask db upgrade
 
 --> Start backend server
 $ flask run
