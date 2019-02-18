@@ -1,12 +1,13 @@
 # Welcome to BEAR-Necessities-Market
 [![GitHub license](https://img.shields.io/badge/license-GPL%20V3-blue.svg)](https://github.com/LibreFoodPantry/BEAR-Necessities-Market/blob/master/LICENSE.md)
 
-## [React v16](https://facebook.github.io/react/) Frontend
-
-The frontend is heavily inspired by [react boilerplate](https://github.com/react-boilerplate/react-boilerplate), and indeed borrows a good chunk of boilerplate from it.
-
+## [React v16.8.1](https://facebook.github.io/react/) Frontend
+- [material-ui](https://material-ui.com/) for drop in material components
+- Material UI is paired with [mateiral-icons](https://material.io/tools/icons/?style=baseline) for easy icon display
+- [Recharts](http://recharts.org/en-US/) A D3 charting library built on React components
 - [React Router v4](https://reacttraining.com/react-router/web)
-- [Redux](http://redux.js.org/), [Redux-Saga](https://redux-saga.js.org/) and [Redux-Form](https://redux-form.com) for handling state and side effects
+- http requests using [axios](https://github.com/axios/axios)
+- [Redux](http://redux.js.org/) and [Redux-Form](https://redux-form.com) for handling state and side effects
 - [Webpack 3](https://webpack.js.org/) and [Babel 6](https://babeljs.io/)
    - Hot Module Reloading
    - Tree Shaking
@@ -14,7 +15,7 @@ The frontend is heavily inspired by [react boilerplate](https://github.com/react
 
 Entry point is at `frontend/src/index.js`.
 
-## [Flask](http://flask.pocoo.org/) Backend
+## [Flask v1.0.2](http://flask.pocoo.org/) Backend
 
 - [SQLAlchemy](http://docs.sqlalchemy.org/en/rel_1_1/) ORM with [Flask-SQLAlchemy](http://flask-sqlalchemy.pocoo.org/2.2/) and migrations provided by [Flask-Alembic](https://flask-alembic.readthedocs.io/en/stable/)
 - RESTful APIs provided by a customized integration between [Flask-RESTful](http://flask-restful.readthedocs.io/en/latest/) and [Flask-Marshmallow](http://flask-marshmallow.readthedocs.io/en/latest/)
@@ -23,11 +24,9 @@ Entry point is at `frontend/src/index.js`.
    - User permissions and roles via [Flask-Principal](https://pythonhosted.org/Flask-Principal/)
    - Secrets encryption via [passlib](https://passlib.readthedocs.io/en/stable/) and [itsdangerous](https://pythonhosted.org/itsdangerous/)
    - CSRF protection via [Flask-WTF](https://flask-wtf.readthedocs.io/en/stable/)
-- [Flask-Admin](https://flask-admin.readthedocs.io/en/latest/) integrated for painless model CRUD administration
-- [Flask-Session](http://pythonhosted.org/Flask-Session/) for server-side sessions
 - [Celery](http://www.celeryproject.org/) for asynchronous tasks, such as sending emails via [Flask-Mail](https://pythonhosted.org/Flask-Mail/)
 
-The backend is structured using the [Application Factory Pattern](http://flask.pocoo.org/docs/0.12/patterns/appfactories/), in conjunction with a little bit of declarative configuration in `backend/config.py` (for ordered registration of extensions, and auto-detection of views, models, serializers, model admins and cli commands). The entry point is the `create_app()` method in `backend/app.py` (`wsgi.py` in production).
+The backend is structured using the [Application Factory Pattern](http://flask.pocoo.org/docs/1.0/patterns/appfactories/), in conjunction with a little bit of declarative configuration in `backend/config.py` (for ordered registration of extensions, and auto-detection of views, models, serializers, model admins and cli commands). The entry point is the `create_app()` method in `backend/app.py` (`wsgi.py` in production).
 
 
 # Requirements & Global Environment setup
@@ -65,8 +64,8 @@ If you do not have pip, follow the steps below:
 
 
 Install [Node & NPM (Latest versions)](https://nodejs.org/en/download/)
-Verify you have node >= 8.0.0: `$ node --version`
-Verify you have npm >= 5.0.0: `$ npm -v`
+Verify you have node ^8.10.0: `$ node --version`
+Verify you have npm ^5.6.0: `$ npm -v`
     
 
 Install Yarn package manager
@@ -93,7 +92,7 @@ Install virtualenv:
 ```
 $ git clone https://github.com/LibreFoodPantry/BEAR-Necessities-Market.git
 $ cd BEAR-Necessities-Market
-$ virtualenv env
+$ virtualenv env --python=python3.6
 
 ACTIVATE_MAC_ENV:
 $ source env/bin/activate
@@ -103,24 +102,29 @@ $ cd env/Scripts
 $ ./activate
 
 --> Install server dependencies
-$ pip install -r requirements.txt
+$ pip install -r requirements.txt --no-cache-dir
 
 --> Tell Flask to run the manage.py with $ flask
 $ export FLASK_APP=manage.py
 
 --> Run db migrations
-$ flask db init
-$ flask db migrate
+$ flask db upgrade
 
 --> Start backend server
 $ flask run
 
 --> Open a second terminal window
---> follow steps to start virtual env again
+--> Activate your virtualenv for this terminal window
+--> Follow ACTIVATE_MAC_ENV or ACTIVATE_WINDOWS_ENV
 
 --> Setup front end react server
 $ cd BEAR-Necessities-Market/frontend
-$ nvm use 10
+
+--> Verify your node and npm versions are correct
+$ node --version
+$ npm -v
+
+--> If versions are all good, install node_modules with yarn
 $ yarn install
 
 --> The watch flag allows the systems to listen for changes and rebuild the application

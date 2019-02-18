@@ -8,6 +8,8 @@ import NotificationsIcon from "@material-ui/icons/Notifications";
 import PersonIcon from "@material-ui/icons/Person";
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
 
 const styles = theme => ({
   toolbarRoot: {
@@ -23,36 +25,54 @@ const styles = theme => ({
 });
 
 const Header = props => {
+
   const { classes, handleToggleDrawer } = props;
+
   return (
-    <AppBar position="fixed">
-      <Toolbar disableGutters={true} classes={{ root: classes.toolbarRoot }}>
-        <IconButton
-          color="inherit"
-          aria-label="Open drawer"
-          onClick={handleToggleDrawer}
-          className={classes.menuButton}
-        >
-          <MenuIcon />
-        </IconButton>
-        <Typography
-          variant="title"
-          color="inherit"
-          noWrap
-          className={classes.title}
-        >
-          Dashboard
-        </Typography>
-        <IconButton color="inherit">
-          <Badge badgeContent={4} color="secondary">
-            <NotificationsIcon />
-          </Badge>
-        </IconButton>
-        <IconButton onClick={props.logout} color="inherit">
-          <PersonIcon />
-        </IconButton>
-      </Toolbar>
-    </AppBar>
+      <AppBar position="fixed">
+        <Toolbar disableGutters={true} classes={{ root: classes.toolbarRoot }}>
+
+          {/* MENU TOGGLE */}
+          <IconButton
+            color="inherit"
+            aria-label="Open drawer"
+            onClick={handleToggleDrawer}
+            className={classes.menuButton}
+          >
+            <MenuIcon />
+          </IconButton>
+
+          {/* TITLE */}
+          <Typography
+            variant="title"
+            color="inherit"
+            noWrap
+            className={classes.title}
+          >
+            Dashboard
+          </Typography>
+
+          {/* NOTIFICATIONS */}
+          <IconButton color="inherit">
+            <Badge badgeContent={4} color="secondary">
+              <NotificationsIcon />
+            </Badge>
+          </IconButton>
+          <Menu
+            id="simple-menu"
+          >
+            <MenuItem >Profile</MenuItem>
+            <MenuItem >My account</MenuItem>
+            <MenuItem >Logout</MenuItem>
+          </Menu>
+
+          {/* PROFILE */}
+          <IconButton onClick={props.logout} color="inherit">
+            <PersonIcon />
+          </IconButton>
+
+        </Toolbar>
+      </AppBar>
   );
 };
 

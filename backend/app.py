@@ -49,7 +49,6 @@ def register_extensions(app):
     with app.app_context():
         db.init_app(app)
         migrate.init_app(app, db)
-        db.create_all()
     
     # Register JWT helper
     jwt.init_app(app)
