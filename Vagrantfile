@@ -34,7 +34,8 @@ Vagrant.configure(2) do |config|
   config.vm.provision "shell", inline: "cd /vagrant && sudo docker-compose ps", run: "always"
 
   # Flask
-  config.vm.network "forwarded_port", guest: 80, host: 5000
+  config.vm.network "forwarded_port", guest: 80, host: 8000
+  config.vm.network "forwarded_port", guest: 3000, host: 8088
 
   config.vm.provider "virtualbox" do |vb|
     # Display the VirtualBox GUI when booting the machine

@@ -7,6 +7,7 @@ WORKDIR /app
 COPY . /app/
 
 EXPOSE 80
+
 RUN pip install -r requirements.txt
 
 ENTRYPOINT ["python","backend/index.py"]

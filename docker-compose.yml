@@ -1,15 +1,24 @@
 version: '3.3'
 services:
- web_dev:
-  build: .
-  command: "--reload"
-  ports:
-    - "80:80"
-  volumes:
-    - .:/app
-  environment:
-    - FLASK_DEBUG=1
-    - ENV=development
-    - SETTINGS=config/dev-config.py
-    - PORT=4000
-    - DB=./backend/config/dev-config:SQLALCHEMY_DATABASE_URI
+  web_dev:
+    build: ./backend/
+    command: "--reload"
+    ports:
+      - "80:80"
+    volumes:
+      - .:/app
+    environment:
+      - FLASK_DEBUG=1
+      - ENV=development
+      - SETTINGS=config/dev-config.py
+      - PORT=80
+      - DB=./backend/config/dev-config:SQLALCHEMY_DATABASE_URI
+  frontend:
+    build: ./frontend/
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+    environment:
+      - PORT=3000
+
