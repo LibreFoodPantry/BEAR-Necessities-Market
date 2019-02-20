@@ -251,7 +251,8 @@ $RECYCLE.BIN/
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
+
 
 # Thumbnails
 ._*
@@ -301,3 +302,8 @@ Temporary Items
 ## Sqlite3
 
 *.sqlite
+
+#####################################################################
+## Visual Studio Code
+
+.vscode/
