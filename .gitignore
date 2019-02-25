@@ -301,3 +301,8 @@ Temporary Items
 ## Sqlite3
 
 *.sqlite
+
+#####################################################################
+## Visual Studio Code
+
+.vscode/
