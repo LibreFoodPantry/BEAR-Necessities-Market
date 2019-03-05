@@ -18,4 +18,4 @@ before_script:
   - export FLASK_DEBUG=1
 
 # Run all flask tests
-script: flask test
+script: pytest
