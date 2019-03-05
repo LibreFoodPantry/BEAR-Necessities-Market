@@ -7,22 +7,22 @@ a prospective software release.
 ~ https://en.wikipedia.org/wiki/Smoke_testing_(software)
 """
 
-
-def test_index(client):
-    """
-    Test that the index can be loaded.
-    """
-    response = client.get('/')
-
-    assert response.status_code == 200
-    
-
-def test_index_post(client):
-    """
-    GIVEN a Flask application
-    WHEN the '/' page is is posted to (POST)
-    THEN check that a '405' status code is returned
-    """
-    response = client.post('/')
-    assert response.status_code == 405
+#
+# def test_index(client):
+#     """
+#     Test that the index can be loaded.
+#     """
+#     response = client.get('/')
+#
+#     assert response.status_code == 200
+#
+#
+# def test_index_post(client):
+#     """
+#     GIVEN a Flask application
+#     WHEN the '/' page is is posted to (POST)
+#     THEN check that a '405' status code is returned
+#     """
+#     response = client.post('/')
+#     assert response.status_code == 405
 
