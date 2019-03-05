@@ -1,21 +1,35 @@
 # Config file for automatic testing at travis-ci.org
 
-# http://docs.travis-ci.com/user/migrating-from-legacy/
-sudo: false
+matrix:
+  include:
 
-# Configure language and versions
-language: python
-python:
-  - 3.5
-  - 3.6
+    # REACT
+    - language: node_js
+      node_js:
+        - "10"
 
-# Command to install dependencies
-install: pip install -r requirements.txt --no-cache-dir
+      sudo: false
+      script:
+        - cd frontend
+        - yarn install
+        - yarn run build
 
-# Declare our environment variables
-before_script:
-  - export FLASK_APP=manage.py
-  - export FLASK_DEBUG=1
+    # FLASK
+    - language: python
+      python:
+        - 3.5
+        - 3.6
 
-# Run all flask tests
-script: pytest
+      # Declare our environment variables
+      before_script:
+        - cd ..
+        - export FLASK_APP=manage.py
+        - export FLASK_DEBUG=1
+
+      # Command to install dependencies
+      install: pip install -r requirements.txt --no-cache-dir
+
+      sudo: false
+
+      # Run all flask tests
+      script: pytest
