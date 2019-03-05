@@ -5,7 +5,7 @@ from flask_jwt import JWT
 from flask_restful import Api
 
 # [App]
-from backend.extensions import db, migrate, jwt
+from backend.extensions import db, migrate, jwt, bcrypt
 from backend.config import ProductionConfig
 from backend.resources import DEFAULT
 from backend import commands
@@ -53,6 +53,7 @@ def register_extensions(app):
     
     # Register JWT helper
     jwt.init_app(app)
+    bcrypt.init_app(app)
 
 
 def register_resources(api):

@@ -3,6 +3,7 @@
 from flask_jwt_extended import JWTManager
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy, Model
+from flask_bcrypt import Bcrypt
 
 
 class CRUDMixin(Model):
@@ -36,3 +37,4 @@ class CRUDMixin(Model):
 db = SQLAlchemy(model_class=CRUDMixin)
 migrate = Migrate()
 jwt = JWTManager()
+bcrypt = Bcrypt()
