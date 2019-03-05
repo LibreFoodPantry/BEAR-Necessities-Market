@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import SigninForm from '../components/Signin'
-import { authenticate } from '../reducers/authenticate'
+import { authenticate } from '../store/reducers/authenticate'
 
 const styles = () => ({
   root: {

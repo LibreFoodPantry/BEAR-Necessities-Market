@@ -9,7 +9,7 @@ matrix:
         - "10"
 
       sudo: false
-      script:
+      before_script:
         - cd frontend
         - yarn install
         - yarn run build
@@ -22,6 +22,7 @@ matrix:
 
       # Declare our environment variables
       before_script:
+        - cd ..
         - export FLASK_APP=manage.py
         - export FLASK_DEBUG=1
 
@@ -30,5 +31,5 @@ matrix:
 
       sudo: false
 
-      # Run all flask tests
-      script: pytest
+# Run all flask tests
+script: pytest
