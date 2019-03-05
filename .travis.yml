@@ -22,7 +22,6 @@ matrix:
 
       # Declare our environment variables
       before_script:
-        - cd ..
         - export FLASK_APP=manage.py
         - export FLASK_DEBUG=1
 

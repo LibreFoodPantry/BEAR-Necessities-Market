@@ -6,7 +6,7 @@ import { bindActionCreators } from "redux";
 
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
-import { logout } from "../store/reducers/authenticate";
+import { logout } from "../reducers/authenticate";
 
 const drawerWidth = 240;
 
