@@ -21,7 +21,7 @@ class Config:
     SUPPORT_EMAIL = ""
     VERSION = "1.0.0"
     MAIL_SERVER = ""
-    SECRET_KEY = os.environ.get('SECRET_KEY') or '4c4v4f4vf44$'
+    SECRET_KEY = os.urandom(24)
     STATIC_FOLDER = '../../frontend/build'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     JWT_AUTH_USERNAME_KEY = 'email'

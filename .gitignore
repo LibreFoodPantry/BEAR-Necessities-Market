@@ -5,9 +5,12 @@
 __pycache__/
 *.py[cod]
 *$py.class
+*__pycache__
+.pytest_cache
 
 # C extensions
 *.so
+
 
 # Distribution / packaging
 .Python
@@ -252,6 +255,7 @@ $RECYCLE.BIN/
 
 # Icon must end with two \r
 Icon
+
 
 # Thumbnails
 ._*

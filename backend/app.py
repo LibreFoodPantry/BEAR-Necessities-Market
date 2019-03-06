@@ -1,15 +1,16 @@
 # [Flask]
 from flask import Flask
 from flask_mail import Mail
-from flask_jwt import JWT
-from flask_restful import Api
+from flask_restplus import Api
 
 # [App]
-from backend.extensions import db, migrate, jwt
+from backend.extensions import db, migrate, jwt, bcrypt
 from backend.config import ProductionConfig
 from backend.resources import DEFAULT
 from backend import commands
-from backend.resources.users import UsersDetail, UsersList
+
+from backend.resources.users import api as users_namespace
+from backend.resources.auth import api as auth_namespace
 
 # [Python]
 import logging
@@ -33,9 +34,8 @@ def create_app(config_object=ProductionConfig):
     app.register_blueprint(DEFAULT)
 
     api = Api(app)
-    # JWT(app)
-    
-    register_resources(api)
+
+    register_namespaces(api)
     register_extensions(app)
     register_commands(app)
     create_mail_server(app)
@@ -53,12 +53,13 @@ def register_extensions(app):
     
     # Register JWT helper
     jwt.init_app(app)
+    bcrypt.init_app(app)
 
 
-def register_resources(api):
+def register_namespaces(api):
     """Register api resources."""
-    api.add_resource(UsersDetail, '/users/<int:pk>')
-    api.add_resource(UsersList, '/users')
+    api.add_namespace(users_namespace)
+    api.add_namespace(auth_namespace)
 
 
 def register_commands(app):

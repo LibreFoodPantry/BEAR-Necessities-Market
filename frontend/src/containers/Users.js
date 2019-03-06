@@ -25,7 +25,7 @@ export class Users extends Component {
   }
 
   getUsers() {
-    axios.get('/users')
+    axios.get('/users/')
       .then(res => {
         console.log(res);
         let payload = res.data.users;
