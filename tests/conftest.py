@@ -1,12 +1,15 @@
-import pytest
+# [App]
 from backend.app import create_app, db
 from backend.models.users import UserModel
 from backend.config import TestingConfig
 
+# [Python]
+import pytest
+
 
 @pytest.fixture(scope='module')
 def new_user():
-    user = UserModel('hawzie197', 'mhawes24@gmail.com', 'some_password')
+    user = UserModel('mhawes24@gmail.com', 'some_password')
     return user
 
     
@@ -33,8 +36,8 @@ def init_database():
     db.create_all()
 
     # Insert user data
-    user1 = UserModel('username1', 'mhawes24@gmail.com', 'password1')
-    user2 = UserModel('username2', 'hawes_family@gmail.com', 'password2')
+    user1 = UserModel('mhawes244455@gmail.com', 'password1')
+    user2 = UserModel('hawes_family@gmail.com', 'password2')
     db.session.add(user1)
     db.session.add(user2)
 

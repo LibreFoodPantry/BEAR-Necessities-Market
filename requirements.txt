@@ -26,3 +26,6 @@ Werkzeug==0.14.1
 flask_jwt_extended
 pytest
 flask_bcrypt
+flask_restplus
+ujson
+flask_api

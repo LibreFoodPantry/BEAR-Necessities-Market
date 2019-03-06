@@ -10,7 +10,6 @@ def test_new_user(new_user):
     THEN check the email, hashed_password, authenticated, and role fields are defined correctly
     """
     assert new_user.email == 'mhawes24@gmail.com'
-    assert new_user.username == 'hawzie197'
     assert new_user.password != 'some_password'
     assert not new_user.authenticated
     assert new_user.role == 'user'
