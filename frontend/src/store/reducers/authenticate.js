@@ -1,3 +1,4 @@
+import axios from 'axios';
 const LOGIN_SUCCESS = "authentication/LOGIN_SUCCESS";
 const LOGOUT = "authentication/LOGOUT";
 
@@ -25,10 +26,19 @@ export default function reducer(state = initState, action) {
 }
 
 export function authenticate(email = "", password = "") {
-  return {
-    type: LOGIN_SUCCESS
+  axios.post("/auth/login/", {
+    "email" : email,
+    "password": password
+  }).then(res => {
+    return 
+      type: LOGIN_SUCCESS 
+  })
+  .catch(error => {
+    return
+      type: LOGOUT
+  })    
   };
-}
+
 
 export function logout() {
   return {
