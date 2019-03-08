@@ -36,7 +36,7 @@ const SigninForm = props => {
           headlineMapping={{ display: "h1" }}
           variant="title"
         >
-          Sigin
+          Signin
         </Typography>
       </div>
       <Field
