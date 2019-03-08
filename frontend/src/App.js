@@ -10,6 +10,7 @@ import { MuiThemeProvider } from "@material-ui/core/styles";
 import { connect } from "react-redux";
 
 import Home from "./containers/Home";
+import Dashboard from "./containers/Dashboard";
 import Users from "./containers/Users";
 import Signin from "./containers/Signin";
 
@@ -61,16 +62,20 @@ class App extends Component {
           <Router>
             {auth.authenticate ? (
               <Switch>
-                <DashboardRoute path="/dashboard" component={Home} />
+                <DashboardRoute path="/dashboard" component={Dashboard} />
                 <DashboardRoute path="/users" component={Users} />
-                <Route path="/signin" render={() => <Redirect to="/" />} />
-                <DashboardRoute exact path="/" component={Home} />
+                <Route path="/signin" render={() => <Redirect to="/dashboard" />} />
+                <Route path="/studentlogin" render={() => <Redirect to="/dashboard" />} />
+                <Route path="/adminlogin" render={() => <Redirect to="/dashboard" />} />
+                <Route path="/" render={() => <Redirect to="/dashboard" />} />
+                {/* <EmptyRoute path="/" component={Home} /> */}
                 <EmptyRoute component={NotFound} />
               </Switch>
             ) : (
               <Switch>
-                <EmptyRoute path="/signin" component={Signin} />
-                <Redirect to="/signin" />
+                <Route path="/adminlogin" render={() => <div>The Admin Login Screen is yet to be implemented</div>}/>
+                <EmptyRoute exact path="/" component={Home} />
+                <Redirect to="/" />
               </Switch>
             )}
           </Router>
