@@ -68,7 +68,6 @@ class App extends Component {
                 <Route path="/studentlogin" render={() => <Redirect to="/dashboard" />} />
                 <Route path="/adminlogin" render={() => <Redirect to="/dashboard" />} />
                 <Route path="/" render={() => <Redirect to="/dashboard" />} />
-                {/* <EmptyRoute path="/" component={Home} /> */}
                 <EmptyRoute component={NotFound} />
               </Switch>
             ) : (
