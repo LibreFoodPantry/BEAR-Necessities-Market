@@ -1,10 +1,10 @@
 """Extensions module. Each extension is initialized in the app factory located in app.py."""
 
 # [Flask]
-from flask_jwt_extended import JWTManager
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy, Model
 from flask_bcrypt import Bcrypt
+from flask_jwt_extended import JWTManager
 
 
 class CRUDMixin(Model):
