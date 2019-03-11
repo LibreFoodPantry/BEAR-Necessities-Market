@@ -9,7 +9,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import { MuiThemeProvider } from "@material-ui/core/styles";
 import { connect } from "react-redux";
 
-import Home from "./containers/Home";
+import Home from "./containers/home/Home";
 import Dashboard from "./containers/Dashboard";
 import Users from "./containers/Users";
 import Signin from "./containers/Signin";
@@ -72,6 +72,7 @@ class App extends Component {
               </Switch>
             ) : (
               <Switch>
+                <Route path="/studentlogin" component={Signin} />
                 <Route path="/adminlogin" render={() => <div>The Admin Login Screen is yet to be implemented</div>}/>
                 <EmptyRoute exact path="/" component={Home} />
                 <Redirect to="/" />
