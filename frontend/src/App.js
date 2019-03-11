@@ -11,7 +11,7 @@ import { connect } from "react-redux";
 
 import Home from "./containers/Home";
 import Users from "./containers/Users";
-import Signin from "./containers/Signin";
+import LoginPage from "./containers/Signin";
 
 import MainLayout from "./layouts/MainLayout";
 import EmptyLayout from "./layouts/EmptyLayout";
@@ -69,7 +69,7 @@ class App extends Component {
               </Switch>
             ) : (
               <Switch>
-                <EmptyRoute path="/signin" component={Signin} />
+                <EmptyRoute path="/signin" component={LoginPage} />
                 <Redirect to="/signin" />
               </Switch>
             )}
