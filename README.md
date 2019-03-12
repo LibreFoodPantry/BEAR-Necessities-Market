@@ -1,8 +1,12 @@
 # Welcome to BEAR-Necessities-Market
 [![GitHub license](https://img.shields.io/badge/license-GPL%20V3-blue.svg)](https://github.com/LibreFoodPantry/BEAR-Necessities-Market/blob/master/LICENSE.md)
 [![Build Status](https://travis-ci.com/LibreFoodPantry/BEAR-Necessities-Market.svg?branch=master)](https://travis-ci.com/LibreFoodPantry/BEAR-Necessities-Market)
+[![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)](https://www.python.org/downloads/release/python-360/)
+[![npm version](https://img.shields.io/npm/v/react.svg?style=flat)](https://www.npmjs.com/package/react)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://reactjs.org/docs/how-to-contribute.html#your-first-pull-request)
+[![Known Vulnerabilities](https://snyk.io/test/github/dwyl/hapi-auth-jwt2/badge.svg?targetFile=package.json)](https://snyk.io/test/github/dwyl/hapi-auth-jwt2?targetFile=package.json)
 
-## [React v16.8.1](https://facebook.github.io/react/) Frontend
+## [React v16.8.4](https://facebook.github.io/react/) Frontend
 - [material-ui](https://material-ui.com/) for drop in material components
 - Material UI is paired with [mateiral-icons](https://material.io/tools/icons/?style=baseline) for easy icon display
 - [Recharts](http://recharts.org/en-US/) A D3 charting library built on React components
