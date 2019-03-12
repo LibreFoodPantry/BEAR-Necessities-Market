@@ -23,15 +23,14 @@ class UsersList(Resource):
 class UsersDetail(Resource):
     """ get, delete or update a user  """
 
-    def get(self, pk):
+    def get(self, pk: int):
         user = UserModel.find_by_id(pk)
-        print(user)
         if user:
             return user.as_dict(), HTTP_200_OK
         return {'message': 'User not found'}, HTTP_404_NOT_FOUND
 
     @jwt_required
-    def delete(self, pk):
+    def delete(self, pk: int):
         item = UserModel.find_by_id(pk)
         if item:
             item.delete_from_db()

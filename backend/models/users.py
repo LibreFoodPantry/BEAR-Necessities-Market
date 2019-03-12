@@ -26,7 +26,7 @@ class UserModel(db.Model):
     registered_on = db.Column(db.DateTime, nullable=True)
     role = db.Column(db.String, default='user')
 
-    def __init__(self, email, plaintext_password, role='user'):
+    def __init__(self, email: str, plaintext_password: str, role: str='user'):
         self.email = email
         self.password = bcrypt.generate_password_hash(plaintext_password)
         self.authenticated = False
@@ -38,11 +38,11 @@ class UserModel(db.Model):
         db.session.add(self)
         db.session.commit()
 
-    def set_password(self, plaintext_password):
+    def set_password(self, plaintext_password: str) -> None:
         """Encrpyt and store the new password for the user."""
         self.password = bcrypt.generate_password_hash(plaintext_password)
 
-    def is_correct_password(self, plaintext_password):
+    def is_correct_password(self, plaintext_password: str) -> bool:
         """Check to see if provided password matches the stored hashed password."""
         return bcrypt.check_password_hash(self.password, plaintext_password)
 
@@ -56,12 +56,12 @@ class UserModel(db.Model):
         return str(self.id)
 
     @classmethod
-    def find_by_email(cls, email):
+    def find_by_email(cls, email: str):
         """Return the user email, if exists."""
         return cls.query.filter_by(email=email).first()
 
     @classmethod
-    def find_by_id(cls, _id):
+    def find_by_id(cls, _id: int):
         """Return the user with _id, if exists."""
         return cls.query.filter_by(id=_id).first()
 

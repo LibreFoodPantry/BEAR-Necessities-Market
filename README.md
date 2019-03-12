@@ -185,8 +185,8 @@ Say hello in our [slack channel](https://librefoodpantry.slack.com/messages/CG71
 
 [getting-started]: ./docs/getting-setup.md
 [documentation]: ./docs/documentation.md
-[node]: (https://nodejs.org/)
-[python]: (https://www.python.org/downloads/)
+[node]: https://nodejs.org/
+[python]: https://www.python.org/downloads/
 [releases]: ./CHANGELOG.md
-[sendgrid]: (https://sendgrid.com/?opt=1)
-[heroku]: (https://www.heroku.com/)
+[sendgrid]: https://sendgrid.com/?opt=1
+[heroku]: https://www.heroku.com/

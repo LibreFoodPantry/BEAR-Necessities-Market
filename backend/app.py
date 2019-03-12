@@ -44,7 +44,7 @@ def create_app(config_object=ProductionConfig):
     return app
 
 
-def register_extensions(app):
+def register_extensions(app: Flask):
     """Register Flask extensions."""
     
     # Register database and models
@@ -59,19 +59,19 @@ def register_extensions(app):
     bcrypt.init_app(app)
 
 
-def register_namespaces(api):
+def register_namespaces(api: Api):
     """Register api resources."""
     api.add_namespace(users_namespace)
     api.add_namespace(auth_namespace)
 
 
-def register_commands(app):
+def register_commands(app: Flask):
     """Register Click commands."""
     app.cli.add_command(commands.test)
     app.cli.add_command(commands.lint)
     app.cli.add_command(commands.clean)
     
 
-def create_mail_server(app):
+def create_mail_server(app: Flask):
     """ Setup flask mailing server """
     mail.init_app(app)
