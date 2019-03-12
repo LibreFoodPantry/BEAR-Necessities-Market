@@ -1,4 +1,7 @@
-# Welcome to BEAR-Necessities-Market
+<p align="center"><img width=12.5% src="https://github.com/hawzie197/BEAR-Necessities-Market/blob/master/media/logo.png"></p>
+<p align="center"><img width=60% src="https://github.com/hawzie197/BEAR-Necessities-Market/blob/master/media/logo-text.png"></p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 [![GitHub license](https://img.shields.io/badge/license-GPL%20V3-blue.svg)](https://github.com/LibreFoodPantry/BEAR-Necessities-Market/blob/master/LICENSE.md)
 [![Build Status](https://travis-ci.com/LibreFoodPantry/BEAR-Necessities-Market.svg?branch=master)](https://travis-ci.com/LibreFoodPantry/BEAR-Necessities-Market)
 [![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)](https://www.python.org/downloads/release/python-360/)
