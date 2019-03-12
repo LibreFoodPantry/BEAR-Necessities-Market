@@ -1,5 +1,5 @@
-<p align="center"><img width=12.5% src="https://github.com/hawzie197/BEAR-Necessities-Market/blob/master/media/logo.png"></p>
-<p align="center"><img width=60% src="https://github.com/hawzie197/BEAR-Necessities-Market/blob/master/media/logo-text.png"></p>
+<p align="center"><img width=18% src="https://github.com/hawzie197/BEAR-Necessities-Market/blob/master/media/logo.png"></p>
+<p align="center"><img width=65% src="https://github.com/hawzie197/BEAR-Necessities-Market/blob/master/media/logo-text.png"></p>
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 [![GitHub license](https://img.shields.io/badge/license-GPL%20V3-blue.svg)](https://github.com/LibreFoodPantry/BEAR-Necessities-Market/blob/master/LICENSE.md)
@@ -8,6 +8,8 @@
 [![npm version](https://img.shields.io/npm/v/react.svg?style=flat)](https://www.npmjs.com/package/react)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://reactjs.org/docs/how-to-contribute.html#your-first-pull-request)
 [![Known Vulnerabilities](https://snyk.io/test/github/dwyl/hapi-auth-jwt2/badge.svg?targetFile=package.json)](https://snyk.io/test/github/dwyl/hapi-auth-jwt2?targetFile=package.json)
+![Dependencies](https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen.svg)
+
 
 ## [React v16.8.4](https://facebook.github.io/react/) Frontend
 - [material-ui](https://material-ui.com/) for drop in material components
