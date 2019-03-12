@@ -6,7 +6,6 @@ import { bindActionCreators } from "redux";
 
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
-import { logout } from "../_reducers/authenticate";
 
 const drawerWidth = 240;
 
@@ -67,12 +66,7 @@ class MainLayout extends Component {
 }
 
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators(
-    {
-      logout: () => logout()
-    },
-    dispatch
-  );
+
 };
 
 export default connect(

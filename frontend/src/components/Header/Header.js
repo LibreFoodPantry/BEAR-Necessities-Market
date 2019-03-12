@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Component} from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
@@ -10,6 +10,8 @@ import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import {connect} from "react-redux";
+import { userActions } from "../../_actions";
 
 const styles = theme => ({
   toolbarRoot: {
@@ -24,13 +26,40 @@ const styles = theme => ({
   }
 });
 
-const Header = props => {
 
-  const { classes, handleToggleDrawer } = props;
 
-  return (
+class Header extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      anchorEl: null
+    };
+
+  }
+
+  handleClick = event => {
+    this.setState({anchorEl: event.currentTarget});
+  };
+
+  handleClose = () => {
+    this.setState({anchorEl: null});
+  };
+
+  logout = event => {
+    this.setState({anchorEl: null});
+    const {dispatch} = this.props;
+    dispatch(userActions.logout());
+  };
+
+  render() {
+    const {anchorEl} = this.state;
+    const {classes, handleToggleDrawer} = this.props;
+
+    return (
       <AppBar position="fixed">
-        <Toolbar disableGutters={true} classes={{ root: classes.toolbarRoot }}>
+        <Toolbar disableGutters={true} classes={{root: classes.toolbarRoot}}>
 
           {/* MENU TOGGLE */}
           <IconButton
@@ -39,7 +68,7 @@ const Header = props => {
             onClick={handleToggleDrawer}
             className={classes.menuButton}
           >
-            <MenuIcon />
+            <MenuIcon/>
           </IconButton>
 
           {/* TITLE */}
@@ -55,25 +84,43 @@ const Header = props => {
           {/* NOTIFICATIONS */}
           <IconButton color="inherit">
             <Badge badgeContent={4} color="secondary">
-              <NotificationsIcon />
+              <NotificationsIcon/>
             </Badge>
           </IconButton>
           <Menu
             id="simple-menu"
           >
-            <MenuItem >Profile</MenuItem>
-            <MenuItem >My account</MenuItem>
-            <MenuItem >Logout</MenuItem>
+            <MenuItem>Profile</MenuItem>
+            <MenuItem>My account</MenuItem>
+            <MenuItem>Logout</MenuItem>
           </Menu>
 
           {/* PROFILE */}
-          <IconButton onClick={props.logout} color="inherit">
-            <PersonIcon />
+          <IconButton
+            color="inherit"
+            aria-owns={anchorEl ? 'simple-menu' : undefined}
+            aria-haspopup="true"
+            onClick={this.handleClick}
+          >
+            <PersonIcon/>
           </IconButton>
+          <Menu
+            id="simple-menu"
+            anchorEl={anchorEl}
+            open={Boolean(anchorEl)}
+            onClose={this.handleClose}
+          >
+            <MenuItem onClick={this.logout}>Logout</MenuItem>
+          </Menu>
 
         </Toolbar>
       </AppBar>
-  );
-};
+    );
+  }
+}
 
-export default withStyles(styles)(Header);
+function mapStateToProps(state) {
+
+}
+
+export default connect(mapStateToProps)(withStyles(styles)(Header));

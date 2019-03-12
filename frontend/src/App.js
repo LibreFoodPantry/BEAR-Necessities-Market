@@ -20,6 +20,7 @@ const NotFound = () => {
   return <div>NotFound</div>;
 };
 
+
 const DashboardRoute = ({ component: Component, ...rest }) => {
   return (
     <Route
@@ -55,27 +56,27 @@ class App extends Component {
     const { auth } = this.props;
 
     return (
-      <MuiThemeProvider>
-        <CssBaseline />
-        <div style={{ height: "100vh" }}>
-          <Router>
-            {auth.authenticate ? (
-              <Switch>
-                <DashboardRoute path="/dashboard" component={Home} />
-                <DashboardRoute path="/users" component={Users} />
-                <Route path="/signin" render={() => <Redirect to="/" />} />
-                <DashboardRoute exact path="/" component={Home} />
-                <EmptyRoute component={NotFound} />
-              </Switch>
-            ) : (
-              <Switch>
-                <EmptyRoute path="/signin" component={LoginPage} />
-                <Redirect to="/signin" />
-              </Switch>
-            )}
-          </Router>
-        </div>
-      </MuiThemeProvider>
+        <MuiThemeProvider>
+          <CssBaseline />
+          <div style={{ height: "100vh" }}>
+            <Router>
+              {auth.authenticate ? (
+                <Switch>
+                  <DashboardRoute path="/dashboard" component={Home} />
+                  <DashboardRoute path="/users" component={Users} />
+                  <Route path="/signin" render={() => <Redirect to="/" />} />
+                  <DashboardRoute exact path="/" component={Home} />
+                  <EmptyRoute component={NotFound} />
+                </Switch>
+              ) : (
+                <Switch>
+                  <EmptyRoute path="/signin" component={LoginPage} />
+                  <Redirect to="/signin" />
+                </Switch>
+              )}
+            </Router>
+          </div>
+        </MuiThemeProvider>
     );
   }
 }
@@ -85,7 +86,7 @@ App.propTypes = {};
 const mapStateToProps = state => {
   return {
     settings: state.settings,
-    auth: state.auth
+    auth: state.auth,
   };
 };
 

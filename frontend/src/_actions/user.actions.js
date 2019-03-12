@@ -6,16 +6,26 @@ import { history } from '../_helpers';
 export const userActions = {
     login,
     logout,
-    getAll,
+    getAllUsers,
 };
 
 
+/**
+ *  Create a session token bound to the user.
+ *  On success, transfer user to the dashboard.
+ *
+ *  reference url = '/auth/login/'
+ */
 function login(username, password) {
-
-    console.log(username, password);
 
     return dispatch => {
 
+        // Initialize logging in dependencies
+        // - Progress bar
+        dispatch({type: userConstants.LOGIN_REQUEST});
+
+        // Request token and log user in on
+        // successful response.
         userService.login(username, password)
             .then(
                 user => {
@@ -37,24 +47,40 @@ function login(username, password) {
 
 }
 
+/**
+ *  Logout a user and return them to /signin
+ */
 function logout() {
-    userService.logout();
-    return { type: userConstants.LOGOUT };
+
+  // Destroy access token and refresh token
+  userService.logout();
+
+  return dispatch => {
+    dispatch({type: userConstants.LOGOUT})
+  };
 }
 
 
-function getAll() {
-    return dispatch => {
-        dispatch(request());
+/**
+ *  Get all users from the database.
+ *  reference url = '/users/'
+ */
+function getAllUsers() {
+  return dispatch => {
+    dispatch({
+      type: userConstants.GETALL_REQUEST
+    });
 
-        userService.getAll()
-            .then(
-                users => dispatch(success(users)),
-                error => dispatch(failure(error))
-            );
-    };
-
-    function request() { return { type: userConstants.GETALL_REQUEST } }
-    function success(users) { return { type: userConstants.GETALL_SUCCESS, users } }
-    function failure(error) { return { type: userConstants.GETALL_FAILURE, error } }
+    userService.getAll()
+      .then(
+        users => dispatch({
+          type: userConstants.GETALL_SUCCESS,
+          users
+        }),
+        error => dispatch({
+          type: userConstants.GETALL_FAILURE,
+          error
+        })
+      );
+  };
 }
