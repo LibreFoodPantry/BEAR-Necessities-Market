@@ -14,14 +14,27 @@ import Dashboard from "./containers/Dashboard";
 import Users from "./containers/Users";
 import Signin from "./containers/Signin";
 
+import AdminLayout from "./layouts/AdminLayout";
 import MainLayout from "./layouts/MainLayout";
-import EmptyLayout from "./layouts/EmptyLayout";
 
 const NotFound = () => {
   return <div>NotFound</div>;
 };
 
-const DashboardRoute = ({ component: Component, ...rest }) => {
+const AdminRoute = ({ component: Component, ...rest }) => {
+  return (
+    <Route
+      {...rest}
+      render={matchProps => (
+        <AdminLayout>
+          <Component {...matchProps} />
+        </AdminLayout>
+      )}
+    />
+  );
+};
+
+const MainRoute = ({ component: Component, ...rest }) => {
   return (
     <Route
       {...rest}
@@ -29,19 +42,6 @@ const DashboardRoute = ({ component: Component, ...rest }) => {
         <MainLayout>
           <Component {...matchProps} />
         </MainLayout>
-      )}
-    />
-  );
-};
-
-const EmptyRoute = ({ component: Component, ...rest }) => {
-  return (
-    <Route
-      {...rest}
-      render={matchProps => (
-        <EmptyLayout>
-          <Component {...matchProps} />
-        </EmptyLayout>
       )}
     />
   );
@@ -62,19 +62,19 @@ class App extends Component {
           <Router>
             {auth.authenticate ? (
               <Switch>
-                <DashboardRoute path="/dashboard" component={Dashboard} />
-                <DashboardRoute path="/users" component={Users} />
+                <AdminRoute path="/dashboard" component={Dashboard} />
+                <AdminRoute path="/users" component={Users} />
                 <Route path="/signin" render={() => <Redirect to="/dashboard" />} />
                 <Route path="/studentlogin" render={() => <Redirect to="/dashboard" />} />
                 <Route path="/adminlogin" render={() => <Redirect to="/dashboard" />} />
                 <Route path="/" render={() => <Redirect to="/dashboard" />} />
-                <EmptyRoute component={NotFound} />
+                <MainRoute component={NotFound} />
               </Switch>
             ) : (
               <Switch>
                 <Route path="/studentlogin" component={Signin} />
                 <Route path="/adminlogin" render={() => <div>The Admin Login Screen is yet to be implemented</div>}/>
-                <EmptyRoute exact path="/" component={Home} />
+                <MainRoute exact path="/" component={Home} />
                 <Redirect to="/" />
               </Switch>
             )}

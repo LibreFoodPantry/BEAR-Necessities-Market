@@ -24,7 +24,7 @@ const styles = theme => ({
   }
 });
 
-const Header = props => {
+const MainHeader = props => {
 
   const { classes, handleToggleDrawer } = props;
 
@@ -76,4 +76,4 @@ const Header = props => {
   );
 };
 
-export default withStyles(styles)(Header);
+export default withStyles(styles)(MainHeader);
