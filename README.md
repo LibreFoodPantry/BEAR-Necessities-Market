@@ -176,7 +176,9 @@ The BEAR-Necessities-Market application uses [Heroku][heroku] to deploy, manage,
 
 ### Discussion
 
-Say hello in our [Google Group](librefoodpantry@googlegroups.com)
+Say hello in our [Google Group](https://groups.google.com/forum/#!forum/librefoodpantry)
+or email us at: librefoodpantry@googlegroups.com
+
 
 
 ### License
