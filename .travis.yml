@@ -28,7 +28,7 @@ matrix:
         - export FLASK_DEBUG=1
 
       # Command to install dependencies
-      install: pip install -r requirements.txt --no-cache-dir
+      install: pip install -r requirements.txt
 
       sudo: false
 
