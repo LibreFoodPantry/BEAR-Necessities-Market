@@ -1,3 +1,4 @@
+["pantry"](https://thenounproject.com/search/?q=food%20pantry&i=489212#) icon by David Carrero from the [the Noun Project](https://thenounproject.com/)
 <p align="center"><img width=18% src="https://github.com/hawzie197/BEAR-Necessities-Market/blob/master/media/logo.png"></p>
 <p align="center"><img width=65% src="https://github.com/hawzie197/BEAR-Necessities-Market/blob/master/media/logo-text.png"></p>
 
@@ -175,7 +176,7 @@ The BEAR-Necessities-Market application uses [Heroku][heroku] to deploy, manage,
 
 ### Discussion
 
-Say hello in our [slack channel](https://librefoodpantry.slack.com/messages/CG71A9VT2/)
+Say hello in our [Google Group](librefoodpantry@googlegroups.com)
 
 
 ### License
