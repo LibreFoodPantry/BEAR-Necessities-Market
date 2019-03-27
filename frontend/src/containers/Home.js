@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import { increment, decrement } from '../store/reducers/stepCounter'
+import { increment, decrement } from '../_reducers/stepCounter'
 
 const Home = props => (
   <div
