@@ -2,7 +2,7 @@ import React, { Fragment, Component } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import classNames from "classnames";
 import { connect } from "react-redux";
-
+import Grid from '@material-ui/core/Grid';
 import MainHeader from "../components/MainHeader";
 
 const drawerWidth = 240;
@@ -46,9 +46,11 @@ class MainLayout extends Component {
       <Fragment>
         <div className={classes.root}>
           <MainHeader />
-          <main className={classNames(classes.content, {[classes.contentShift]: this.state.open})}>
-            {children}
-          </main>
+          <Grid container justify="center" alignItems="center" spacing={16}>
+            <main className={classNames(classes.content, {[classes.contentShift]: this.state.open})}>
+              {children}
+            </main>
+          </Grid>
         </div>
       </Fragment>
     );

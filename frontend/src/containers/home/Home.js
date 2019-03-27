@@ -1,64 +1,83 @@
-import React from 'react'
-import { withStyles } from '@material-ui/core/styles'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+// import ButtonBase from '@material-ui/core/ButtonBase';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
-import { CssBaseline, Card, CardContent, Grid } from '@material-ui/core';
+import classNames from 'classnames';
 
 const styles = theme => ({
   root: {
-    height: 'inherit',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    alignContent: 'center',
-    justifyContent: 'center',
-    // TODO: Fix bug for when screen is in extreme landscape (ie. Short height, x < 500px) resolution, top part of UI gets cut off.
+    flexGrow: 1,
   },
-  headerText: {
-    marginRight: '175px',
+  paper: {
+    padding: theme.spacing.unit * 2,
+    margin: 'auto',
+    maxWidth: "80%"
   },
-  buttonStyle1: {
+  subtitle: {
+    textAlign: "center",
+    fontFamily: ("Times New Roman", "Times", "serif")
+  },
+  buttonStyle: {
     // width: '100px',
     maxWidth: '200px',
     height: 'auto',
-    borderRadius: '50%',
     boxShadow: '2px 4px 10px grey',
+    // borderRadius: '50%',
     // TODO: Scale icon in button. Bit small at the moment.
   },
-  input: {
-    display: 'none',
+  studentButton: {
+    color: '#4CAF50',
+    '&:hover': {
+      color: '#FFA500'
+    }
   },
+  gridStyle1: {
+    padding: '20px'
+  }
 });
 
-
-const Home = (props) => {
-  const { classes } = props
+function Home(props) {
+  const { classes } = props;
   return (
-    <div style={{ padding: '10px 8%', fontSize: '15px' }}>
-      <Grid container className={classes.root} direction="row" justify="space-around" align="flex-start">
-        <Grid item sm={12} xs={12} style={{ textAlign: 'center' }}>
-          <h1 className={classes.headerText}>
-            I am ...
-          </h1>
-          {/* TODO: Colorize/beautify text */}
-          <Link to="/Studentlogin" className={classes.buttonStyle1} style={{margin: '10px'}}>
-            <Button className={classes.buttonStyle1}>
-              <img src={require("./images/student_btn.png")} alt="Student button" className={classes.buttonStyle1}/>
-            </Button>
-          </Link>
-          
-          <Link to="/adminlogin" className={classes.buttonStyle1} style={{margin: '10px'}}>
-            <Button className={classes.buttonStyle1}>
-              <img src={require("./images/admin_btn.png")} alt="Adminstrator button" className={classes.buttonStyle1}/>
-            </Button>
-          </Link>
-
-          {/* <Link to="/volunteerlogin"><Button><img src={require("./images/volunteer_btn.png")} alt="Volunteer button" className={classes.buttonStyle1}/></Button></Link> */}
+    <div className={classes.root}>
+      <Paper className={classes.paper}>
+        <Grid container direction="column" alignItems="center">
+          <Grid item xs={12} alignItems="center">
+            <Typography variant="h3" className={classes.subtitle}>
+              Welcome to Libre Food Pantry
+            </Typography>
+          </Grid>
+          <Grid item xs={12} className={classes.gridStyle1} alignItems="center">
+            {/* <Grid item xs={6} > */}
+              <Link to="/Studentlogin" style={{margin: '10px'}}>
+                <Button variant="contained" className={classNames(classes.buttonStyle, classes.studentButton)}>
+                  {/* <img src={require("./images/student_btn.png")} alt="Student button" className={classes.buttonStyle1}/> */}                    
+                  STUDENT
+                </Button>
+              </Link>
+            {/* </Grid> */}
+            {/* <Grid item xs={6}> */}
+              <Link to="/adminlogin" style={{margin: '10px'}}>
+                <Button variant="contained" color="primary" className={classes.buttonStyle}>
+                  {/* <img src={require("./images/admin_btn.png")} alt="Adminstrator button" className={classes.buttonStyle1}/> */}
+                  ADMIN
+                </Button>
+              </Link>
+            {/* </Grid> */}
+          </Grid>
         </Grid>
-      </Grid>
+      </Paper>
     </div>
-  )
-};
+  );
+}
 
+Home.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
 
 export default withStyles(styles)(Home);
