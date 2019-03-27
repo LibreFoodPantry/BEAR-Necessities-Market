@@ -11,7 +11,7 @@ import { connect } from "react-redux";
 
 import Home from "./containers/Home";
 import Users from "./containers/Users";
-import LoginPage from "./containers/Signin";
+import Signin from "./containers/Signin";
 
 import MainLayout from "./layouts/MainLayout";
 import EmptyLayout from "./layouts/EmptyLayout";
@@ -19,7 +19,6 @@ import EmptyLayout from "./layouts/EmptyLayout";
 const NotFound = () => {
   return <div>NotFound</div>;
 };
-
 
 const DashboardRoute = ({ component: Component, ...rest }) => {
   return (
@@ -56,27 +55,27 @@ class App extends Component {
     const { auth } = this.props;
 
     return (
-        <MuiThemeProvider>
-          <CssBaseline />
-          <div style={{ height: "100vh" }}>
-            <Router>
-              {auth.authenticate ? (
-                <Switch>
-                  <DashboardRoute path="/dashboard" component={Home} />
-                  <DashboardRoute path="/users" component={Users} />
-                  <Route path="/signin" render={() => <Redirect to="/" />} />
-                  <DashboardRoute exact path="/" component={Home} />
-                  <EmptyRoute component={NotFound} />
-                </Switch>
-              ) : (
-                <Switch>
-                  <EmptyRoute path="/signin" component={LoginPage} />
-                  <Redirect to="/signin" />
-                </Switch>
-              )}
-            </Router>
-          </div>
-        </MuiThemeProvider>
+      <MuiThemeProvider>
+        <CssBaseline />
+        <div style={{ height: "100vh" }}>
+          <Router>
+            {auth.authenticate ? (
+              <Switch>
+                <DashboardRoute path="/dashboard" component={Home} />
+                <DashboardRoute path="/users" component={Users} />
+                <Route path="/signin" render={() => <Redirect to="/" />} />
+                <DashboardRoute exact path="/" component={Home} />
+                <EmptyRoute component={NotFound} />
+              </Switch>
+            ) : (
+              <Switch>
+                <EmptyRoute path="/signin" component={Signin} />
+                <Redirect to="/signin" />
+              </Switch>
+            )}
+          </Router>
+        </div>
+      </MuiThemeProvider>
     );
   }
 }
@@ -86,7 +85,7 @@ App.propTypes = {};
 const mapStateToProps = state => {
   return {
     settings: state.settings,
-    auth: state.auth,
+    auth: state.auth
   };
 };
 

@@ -1,8 +1,11 @@
 import datetime
 import pytz
 
+# export a common alias for dateutil.parser.parse
+from dateutil.parser import parse as parse_datetime
 
-def timestamp_to_datetime(seconds: int, tz: str=None):
+
+def timestamp_to_datetime(seconds, tz=None):
     """Returns a datetime.datetime of seconds in UTC
     :param seconds: timestamp relative to the epoch
     :param tz: timezone of the timestamp

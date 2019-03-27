@@ -4,10 +4,11 @@ from flask_mail import Mail
 from flask_restplus import Api
 
 # [App]
-from backend.extensions import db, migrate, bcrypt, jwt
+from backend.extensions import db, migrate, jwt, bcrypt
 from backend.config import ProductionConfig
 from backend.resources import DEFAULT
 from backend import commands
+
 from backend.resources.users import api as users_namespace
 from backend.resources.auth import api as auth_namespace
 
@@ -39,12 +40,10 @@ def create_app(config_object=ProductionConfig):
     register_commands(app)
     create_mail_server(app)
     
-    print(app.url_map)
-    
     return app
 
 
-def register_extensions(app: Flask):
+def register_extensions(app):
     """Register Flask extensions."""
     
     # Register database and models
@@ -52,26 +51,24 @@ def register_extensions(app: Flask):
         db.init_app(app)
         migrate.init_app(app, db)
     
-    # Register JWT token auth
+    # Register JWT helper
     jwt.init_app(app)
-    
-    # Registering application encryption
     bcrypt.init_app(app)
 
 
-def register_namespaces(api: Api):
+def register_namespaces(api):
     """Register api resources."""
     api.add_namespace(users_namespace)
     api.add_namespace(auth_namespace)
 
 
-def register_commands(app: Flask):
+def register_commands(app):
     """Register Click commands."""
     app.cli.add_command(commands.test)
     app.cli.add_command(commands.lint)
     app.cli.add_command(commands.clean)
     
 
-def create_mail_server(app: Flask):
+def create_mail_server(app):
     """ Setup flask mailing server """
     mail.init_app(app)

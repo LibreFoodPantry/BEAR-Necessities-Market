@@ -1,10 +1,10 @@
 """Extensions module. Each extension is initialized in the app factory located in app.py."""
 
 # [Flask]
+from flask_jwt_extended import JWTManager
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy, Model
 from flask_bcrypt import Bcrypt
-from flask_jwt_extended import JWTManager
 
 
 class CRUDMixin(Model):
@@ -16,20 +16,20 @@ class CRUDMixin(Model):
         instance = cls(**kwargs)
         return instance.save()
 
-    def update(self, commit: bool=True, **kwargs):
+    def update(self, commit=True, **kwargs):
         """Update specific fields of a record."""
         for attr, value in kwargs.items():
             setattr(self, attr, value)
         return commit and self.save() or self
 
-    def save(self, commit: bool=True):
+    def save(self, commit=True):
         """Save the record."""
         db.session.add(self)
         if commit:
             db.session.commit()
         return self
 
-    def delete(self, commit: bool=True):
+    def delete(self, commit=True):
         """Remove the record from the database."""
         db.session.delete(self)
         return commit and db.session.commit()
