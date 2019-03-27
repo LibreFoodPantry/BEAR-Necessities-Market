@@ -64,16 +64,15 @@ class App extends Component {
               <Switch>
                 <AdminRoute path="/dashboard" component={Dashboard} />
                 <AdminRoute path="/users" component={Users} />
-                <Route path="/signin" render={() => <Redirect to="/dashboard" />} />
-                <Route path="/studentlogin" render={() => <Redirect to="/dashboard" />} />
+                <Route path="/signin" component={Signin} />
                 <Route path="/adminlogin" render={() => <Redirect to="/dashboard" />} />
                 <Route path="/" render={() => <Redirect to="/dashboard" />} />
                 <MainRoute component={NotFound} />
               </Switch>
             ) : (
               <Switch>
-                <Route path="/studentlogin" component={Signin} />
-                <Route path="/adminlogin" render={() => <div>The Admin Login Screen is yet to be implemented</div>}/>
+                <Route path="/studentlogin" render={() => <div>The Order Placement page is not yet implemented. </div>} />
+                <Route path="/adminlogin" component={Signin}/>
                 <MainRoute exact path="/" component={Home} />
                 <Redirect to="/" />
               </Switch>
