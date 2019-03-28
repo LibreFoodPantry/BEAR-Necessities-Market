@@ -1,6 +1,6 @@
 # [Flask]
 from flask_restplus import Namespace, Resource
-from flask_jwt_extended import jwt_required
+from flask_jwt import jwt_required
 from flask_api.status import *
 
 # [App]
@@ -23,14 +23,15 @@ class UsersList(Resource):
 class UsersDetail(Resource):
     """ get, delete or update a user  """
 
-    def get(self, pk: int):
+    def get(self, pk):
         user = UserModel.find_by_id(pk)
+        print(user)
         if user:
             return user.as_dict(), HTTP_200_OK
         return {'message': 'User not found'}, HTTP_404_NOT_FOUND
 
-    @jwt_required
-    def delete(self, pk: int):
+    @jwt_required()
+    def delete(self, pk):
         item = UserModel.find_by_id(pk)
         if item:
             item.delete_from_db()
