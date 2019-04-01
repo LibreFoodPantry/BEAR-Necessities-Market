@@ -29,3 +29,4 @@ flask_bcrypt
 flask_restplus
 ujson
 flask_api
+flask-sendgrid
