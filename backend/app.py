@@ -2,6 +2,7 @@
 from flask import Flask
 from flask_mail import Mail
 from flask_restplus import Api
+from flask_sendgrid import SendGrid
 
 # [App]
 from backend.extensions import db, migrate, bcrypt, jwt
@@ -25,6 +26,8 @@ def create_app(config_object=ProductionConfig):
     # Default application
     app = Flask(__name__, static_url_path="")
     app.config.from_object(config_object)
+    #app.config['SENDGRID_API_KEY'] = '' 
+    #app.config['SENDGRID_DEFAULT_FROM'] = 'admin@yourdomain.com'
     app.url_map.strict_slashes = False
 
     app.static_folder = '../frontend/build'
@@ -75,3 +78,4 @@ def register_commands(app: Flask):
 def create_mail_server(app: Flask):
     """ Setup flask mailing server """
     mail.init_app(app)
+    #mail.SendGrid(app)
