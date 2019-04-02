@@ -17,7 +17,7 @@ import logging
 
 
 logger = logging.getLogger(__name__)
-mail = Mail()
+mail = Sendgrid(app)
 
 
 def create_app(config_object=ProductionConfig):
