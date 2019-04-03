@@ -19,26 +19,16 @@ class OrdersDetail(Resource):
         
         post_data = request.get_json()
         
-        # Query to see if the order already exists
-        order = OrdersModel.find_by_id(id=post_data.get('id', None))
-        
-        # If order doesn't already exist, create a order
-        if not order:
-            try:
-                # Register the order
-                email = post_data['email']
-                order = OrdersModel(email)
-                order.save_to_db()
+        try:
+            # Register the order
+            email = post_data['email']
+            order = OrdersModel(email)
+            order.save_to_db()
 
-                return HTTP_201_CREATED
+            return HTTP_201_CREATED
 
-            except Exception as e:
-                response = {
-                    'message': str(e)
-                }
-                return make_response(jsonify(response)), HTTP_401_UNAUTHORIZED
-        else:
+        except Exception as e:
             response = {
-                'message': 'Order already exists. Please login.'
+                'message': str(e)
             }
-            return make_response(jsonify(response)), HTTP_202_ACCEPTED
+            return make_response(jsonify(response)), HTTP_401_UNAUTHORIZED

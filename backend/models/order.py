@@ -17,8 +17,8 @@ class OrdersModel(db.Model):
     __tablename__ = 'orders'
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    email = db.Column(db.String, unique=True, nullable=True)
-    created_on = db.Column(db.DateTime, nullable=True)
+    email = db.Column(db.String, unique=True, nullable=False)
+    created_on = db.Column(db.DateTime, nullable=False)
 
     def __init__(self, email):
         self.email = email
