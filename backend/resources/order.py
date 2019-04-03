@@ -5,7 +5,7 @@ from flask_jwt import jwt_required
 from flask_api.status import *
 
 # [App]
-from backend.models.users import OrdersModel
+from backend.models.order import OrdersModel
 
 
 api = Namespace('orders', description='Orders related operations')
