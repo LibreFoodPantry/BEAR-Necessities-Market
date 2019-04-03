@@ -44,6 +44,7 @@ def init_database():
     # Insert user data
     user1 = UserModel('mhawes244455@gmail.com', 'password1')
     user2 = UserModel('hawes_family@gmail.com', 'password2')
+    user2 = UserModel('testuser@gmail.com', 'password')
     db.session.add(user1)
     db.session.add(user2)
 
