@@ -12,7 +12,7 @@ import { connect } from "react-redux";
 import Home from "./containers/home/Home";
 import Dashboard from "./containers/Dashboard";
 import Users from "./containers/Users";
-import Signin from "./containers/Signin";
+import LoginPage from "./containers/Signin";
 
 import AdminLayout from "./layouts/AdminLayout";
 import MainLayout from "./layouts/MainLayout";
@@ -64,7 +64,7 @@ class App extends Component {
               <Switch>
                 <AdminRoute path="/dashboard" component={Dashboard} />
                 <AdminRoute path="/users" component={Users} />
-                <Route path="/signin" component={Signin} />
+                <Route path="/signin" component={LoginPage} />
                 <Route path="/adminlogin" render={() => <Redirect to="/dashboard" />} />
                 <Route path="/" render={() => <Redirect to="/dashboard" />} />
                 <MainRoute component={NotFound} />
@@ -72,7 +72,7 @@ class App extends Component {
             ) : (
               <Switch>
                 <Route path="/studentlogin" render={() => <div>The Order Placement page is not yet implemented. </div>} />
-                <Route path="/adminlogin" component={Signin}/>
+                <Route path="/adminlogin" component={LoginPage}/>
                 <MainRoute exact path="/" component={Home} />
                 <Redirect to="/" />
               </Switch>
@@ -89,7 +89,7 @@ App.propTypes = {};
 const mapStateToProps = state => {
   return {
     settings: state.settings,
-    auth: state.auth
+    auth: state.auth,
   };
 };
 

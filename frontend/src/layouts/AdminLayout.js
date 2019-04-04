@@ -6,7 +6,7 @@ import { bindActionCreators } from "redux";
 
 import AdminHeader from "../components/AdminHeader";
 import Sidebar from "../components/Sidebar";
-import { logout } from "../store/reducers/authenticate";
+import { userActions } from "../_actions/user.actions";
 
 const drawerWidth = 240;
 
@@ -69,7 +69,7 @@ class AdminLayout extends Component {
 const mapDispatchToProps = dispatch => {
   return bindActionCreators(
     {
-      logout: () => logout()
+      logout: () => userActions.logout()
     },
     dispatch
   );

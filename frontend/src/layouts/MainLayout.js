@@ -58,6 +58,7 @@ class MainLayout extends Component {
 }
 
 const mapDispatchToProps = dispatch => {
+
 };
 
 export default connect(
