@@ -78,7 +78,6 @@ function Home(props) {
             </Link>
             <Link to='/adminlogin' style={{margin: '10px', textDecoration: 'none'}}>
               <Button variant='contained' color='primary' className={classNames(classes.buttonStyle, classes.adminButton)}>
-                {/* <img src={require('./images/admin_btn.png')} alt='Adminstrator button' className={classes.buttonStyle1}/> */}
                 ADMIN
               </Button>
             </Link>
