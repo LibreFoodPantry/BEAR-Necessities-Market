@@ -33,7 +33,7 @@ const MainHeader = props => {
         <Toolbar disableGutters={true}>
           {/* TITLE */}
           <Typography variant="title" color="inherit" className={classes.title}>
-            LIBRE FOOD PANTRY
+            BEAR NECESSITIES MARKET
           </Typography>
 
           {/* Navigation */}

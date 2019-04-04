@@ -62,7 +62,7 @@ function Home(props) {
         <Grid container direction='column' spacing={24} alignItems='center'>
           <Grid item xs={12} alignItems='center'>
             <Typography variant='h3' className={classes.subtitle}>
-              Welcome to Libre Food Pantry
+              Welcome to BEAR Necessities Market
             </Typography>
           </Grid>
           <Grid item xs={12} alignItems='center' padding='20px'>
