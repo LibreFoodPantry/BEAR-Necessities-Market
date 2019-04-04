@@ -26,8 +26,6 @@ const styles = theme => ({
   }
 });
 
-const AdminHeader = props => {
-
 class AdminHeader extends Component {
 
   constructor(props) {
@@ -117,7 +115,6 @@ class AdminHeader extends Component {
       </AppBar>
     );
   }
-}
 }
 
 function mapStateToProps(state) {
