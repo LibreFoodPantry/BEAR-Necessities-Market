@@ -17,7 +17,7 @@ import logging
 
 
 logger = logging.getLogger(__name__)
-mail = SendGrid(app)
+#mail = SendGrid(app)
 
 
 def create_app(config_object=ProductionConfig):
@@ -40,7 +40,8 @@ def create_app(config_object=ProductionConfig):
     register_namespaces(api)
     register_extensions(app)
     register_commands(app)
-    create_mail_server(app)
+    mail = SendGrid(app)
+    #create_mail_server(app)
     
     print(app.url_map)
     
@@ -77,5 +78,5 @@ def register_commands(app: Flask):
 
 def create_mail_server(app: Flask):
     """ Setup flask mailing server """
-    mail.init_app(app)
+    #mail.init_app(app)
     #mail.SendGrid(app)
