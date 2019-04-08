@@ -39,7 +39,8 @@ def create_app(config_object=ProductionConfig):
     register_namespaces(api)
     register_extensions(app)
     register_commands(app)
-    mail = SendGrid(app)
+    if not config.TESTING == True:
+        app.mail = SendGrid(app)
     #create_mail_server(app)
     
     print(app.url_map)
