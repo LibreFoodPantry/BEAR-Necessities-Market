@@ -20,7 +20,8 @@ api = Namespace('auth', description='Auth related operations')
 @api.route('/register/', methods=['POST'])
 class RegistrationView(Resource):
     """ register a new user """
-
+	
+	@jwt_required
     def post(self):
         
         post_data = request.get_json()
