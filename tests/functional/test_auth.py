@@ -14,21 +14,21 @@ def test_user_registration(client, init_database):
     """
 	
 	identity = 'testuser@gmail.com'
-    access_token = create_access_token(identity=identity)
-    headers = {
-        'Authorization': 'Token {}'.format(access_token)
-    }
-	
-    data = {
-        'email': 'mhawes24@gmail.com',
-        'password': 'some_password',
-    }
-    url = '/auth/register/'
+	access_token = create_access_token(identity=identity)
+	headers = {
+		'Authorization': 'Token {}'.format(access_token)
+	}
 
-    response = client.post(url, json=data)
+	data = {
+		'email': 'mhawes24@gmail.com',
+		'password': 'some_password',
+	}
+	url = '/auth/register/'
+
+	response = client.post(url, json=data)
     
-    assert response.status_code == HTTP_201_CREATED
-    assert b'You registered successfully. Please login.' in response.data
+	assert response.status_code == HTTP_201_CREATED
+	assert b'You registered successfully. Please login.' in response.data
 
 
 def test_jwt_login_json(client):
