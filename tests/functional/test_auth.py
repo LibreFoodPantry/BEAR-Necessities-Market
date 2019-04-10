@@ -9,9 +9,16 @@ from flask_jwt_extended import (
 
 def test_user_registration(client, init_database):
     """
-    Test that the registration route creates a user.
+    Test that the registration route creates a new admin user.
+	Requires an admin to be logged in currently.
     """
-
+	
+	identity = 'testuser@gmail.com'
+    access_token = create_access_token(identity=identity)
+    headers = {
+        'Authorization': 'Token {}'.format(access_token)
+    }
+	
     data = {
         'email': 'mhawes24@gmail.com',
         'password': 'some_password',
