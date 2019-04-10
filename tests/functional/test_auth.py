@@ -25,7 +25,7 @@ def test_user_registration(client, init_database):
     }
     url = '/auth/register/'
 
-    response = client.post(url, json=data)
+    response = client.post(url, json=data, headers=headers)
     
     assert response.status_code == HTTP_201_CREATED
     assert b'You registered successfully. Please login.' in response.data
