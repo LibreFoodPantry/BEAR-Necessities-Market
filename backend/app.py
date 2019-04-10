@@ -37,12 +37,8 @@ def create_app(config_object=ProductionConfig):
     register_namespaces(api)
     register_extensions(app)
     register_commands(app)
+    create_mail_server(app)
 
-    # Check for Testing state - set up Sendgrid if not
-    if not app.config['TESTING']:
-        app.mail = SendGrid(app)
-    #create_mail_server(app)
-    
     print(app.url_map)
     
     return app
@@ -78,5 +74,6 @@ def register_commands(app: Flask):
 
 def create_mail_server(app: Flask):
     """ Setup flask mailing server """
-    #mail.init_app(app)
-    #mail.SendGrid(app)
+    # Check for Testing state - set up Sendgrid if not
+    if not app.config['TESTING']:
+        app.mail = SendGrid(app)
