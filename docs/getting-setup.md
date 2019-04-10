@@ -19,6 +19,7 @@ You can download the latest versions [here][node].
 
 ```bash
 npm i -g yarn
+
 ```
 
 **Why Yarn and not NPM?**
