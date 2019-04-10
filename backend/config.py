@@ -37,6 +37,7 @@ class Config:
         'http://localhost:4000',
     ]
     JWT_HEADER_TYPE = 'Token'
+    SENDGRID_API_KEY = os.environ.get('SENDGRID_API_KEY')
 
 
 class DevelopmentConfig(Config):

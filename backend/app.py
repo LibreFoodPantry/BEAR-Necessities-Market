@@ -25,8 +25,6 @@ def create_app(config_object=ProductionConfig):
     # Default application
     app = Flask(__name__, static_url_path="")
     app.config.from_object(config_object)
-    app.config['SENDGRID_API_KEY'] = '' 
-    app.config['SENDGRID_DEFAULT_FROM'] = 'admin@yourdomain.com'
     app.url_map.strict_slashes = False
 
     app.static_folder = '../frontend/build'
