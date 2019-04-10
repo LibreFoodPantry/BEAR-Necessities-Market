@@ -5,6 +5,7 @@ from flask_sendgrid import SendGrid
 
 def send_email(from_email='someone@yourdomain.com',to_email='test@example.com',
     subject='Subject', text = 'Body'):
+    
     #if not isinstance(to_email, (tuple, list)):
         #to_email = [to_email]
 

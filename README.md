@@ -46,6 +46,7 @@ cd ..
 
 pip install -r requirements.txt
 export FLASK_APP=manage.py
+export SENDGRID_API_KEY="<your api key>"
 flask db upgrade
 flask run
 
