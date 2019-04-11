@@ -38,6 +38,7 @@ class Config:
     ]
     JWT_HEADER_TYPE = 'Token'
     SENDGRID_API_KEY = os.environ.get('SENDGRID_API_KEY')
+    SENDGRID_DEFAULT_FROM = os.environ.get('SENDGRID_DEFAULT_FROM')
 
 
 class DevelopmentConfig(Config):
