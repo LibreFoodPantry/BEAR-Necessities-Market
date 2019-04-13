@@ -42,7 +42,6 @@ class Config:
 class DevelopmentConfig(Config):
     DEBUG = True
     ENV = 'dev'
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'data-dev.sqlite')
 
 
 class TestingConfig(Config):
