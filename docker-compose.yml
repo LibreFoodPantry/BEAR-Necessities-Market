@@ -1,0 +1,45 @@
+version: '3.3'
+
+services:
+
+  server:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    volumes:
+      - './backend:/usr/src/app'
+    ports:
+      - 5001:5000
+    environment:
+      - FLASK_ENV=development
+      - APP_SETTINGS=config.DevelopmentConfig
+      - SQLALCHEMY_DATABASE_URI=mysql+pymysql://root:secret@database/development
+    depends_on:
+      - database
+  
+  database:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=secret
+    command: --wait-timeout=120 --interactive-timeout=120
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./build.sql:/tmp/build.sql
+      - /mysql:/var/lib/mysql
+    ports:
+      - 3306:3306
+
+  client:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    volumes:
+      - './frontend:/usr/src/app'
+      - '/usr/src/app/node_modules'
+    ports:
+      - 3007:3000
+    environment:
+      - NODE_ENV=development
+      - REACT_APP_USERS_SERVICE_URL=${REACT_APP_USERS_SERVICE_URL}
+    depends_on:
+      - server

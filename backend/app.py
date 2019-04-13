@@ -37,7 +37,6 @@ def create_app(config_object=ProductionConfig):
     register_namespaces(api)
     register_extensions(app)
     register_commands(app)
-    create_mail_server(app)
     
     print(app.url_map)
     
@@ -70,8 +69,3 @@ def register_commands(app: Flask):
     app.cli.add_command(commands.test)
     app.cli.add_command(commands.lint)
     app.cli.add_command(commands.clean)
-    
-
-def create_mail_server(app: Flask):
-    """ Setup flask mailing server """
-    mail.init_app(app)

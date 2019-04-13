@@ -6,4 +6,5 @@ from backend.config import DevelopmentConfig, ProductionConfig
 CONFIG = DevelopmentConfig if get_debug_flag() else ProductionConfig
 
 # Create the app using config environment
-app = create_app(CONFIG)
+if __name__ == '__main__':
+    create_app(CONFIG)
