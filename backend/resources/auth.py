@@ -17,12 +17,12 @@ from backend.models.users import UserModel
 api = Namespace('auth', description='Auth related operations')
 
 
-@api.route('/register/', methods=['POST'])
+@api.route('/register/', methods=['PUT'])
 class RegistrationView(Resource):
     """ register a new user """
 	
     @jwt_required
-    def post(self):
+    def put(self):
         
         post_data = request.get_json()
         

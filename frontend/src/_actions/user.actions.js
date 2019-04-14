@@ -83,4 +83,34 @@ function getAllUsers() {
         })
       );
   };
+  function register(username, password) {
+
+    return dispatch => {
+
+        // Initialize logging in dependencies
+        // - Progress bar
+        dispatch({type: userConstants.REGISTER_REQUEST});
+
+        // Request token and log user in on
+        // successful response.
+        userService.register(username, password)
+            .then(
+                user => {
+                    dispatch({
+                      type: userConstants.REGISTER_SUCCESS,
+                      user
+                    });
+                    history.push('/');
+                },
+                error => {
+                    dispatch({
+                      type: userConstants.REGISTER_FAILURE,
+                      error
+                    });
+                    dispatch(alertActions.error(error));
+                }
+            );
+    };
+
+}
 }

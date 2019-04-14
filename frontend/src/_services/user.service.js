@@ -82,4 +82,18 @@ function getUserById(id) {
 
     });
 
+/**
+ * Adding a user to database
+ * 
+ * @param email: string
+ * @param password: string
+ * @returns {Promise<AxiosResponse<any>>}
+ */
+    function register(email, password) {
+
+        const credentials = {email: email, password: password};
+    
+        return axios.put(`/auth/register/`, {...credentials})
+    }
+
 }
