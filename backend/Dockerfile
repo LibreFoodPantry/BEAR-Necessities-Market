@@ -1,8 +1,7 @@
 # base image
 FROM python:3.7.2-alpine
 
-RUN /bin/sh -c "apk add python-dev"
-RUN /bin/sh -c "apk add --no-cache bash"
+RUN apk add --update python-dev bash libffi-dev build-base
 
 # set working directory
 WORKDIR /usr/src/app
