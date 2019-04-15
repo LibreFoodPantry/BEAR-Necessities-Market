@@ -26,9 +26,7 @@ const styles = theme => ({
   }
 });
 
-
-
-class Header extends Component {
+class AdminHeader extends Component {
 
   constructor(props) {
     super(props);
@@ -120,7 +118,6 @@ class Header extends Component {
 }
 
 function mapStateToProps(state) {
-
 }
 
-export default connect(mapStateToProps)(withStyles(styles)(Header));
+export default connect(mapStateToProps)(withStyles(styles)(AdminHeader));

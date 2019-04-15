@@ -1,0 +1,6 @@
+###############################################################################
+## From .gitignore.d/Sqlite.gitignore
+
+# SQLite database files
+*.sqlite
+*.sqlite3

@@ -9,7 +9,7 @@ import { connect } from 'react-redux'
 
 import { increment, decrement } from '../_reducers/stepCounter'
 
-const Home = props => (
+const Dashboard = props => (
   <div
     style={{
       display: 'flex',
@@ -63,4 +63,4 @@ const mapDispatchToProps = dispatch => bindActionCreators(
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Home)
+)(Dashboard)
