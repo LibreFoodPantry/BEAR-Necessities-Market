@@ -50,7 +50,7 @@ const Sidebar = props => {
       open={open}
     >
       <List>
-        <Link to="/">
+        <Link to="/dashboard">
           <ListItem button>
             <ListItemIcon>
               <DashboardIcon />
