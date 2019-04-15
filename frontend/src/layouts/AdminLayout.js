@@ -2,8 +2,11 @@ import React, { Fragment, Component } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import classNames from "classnames";
 import { connect } from "react-redux";
-import Grid from '@material-ui/core/Grid';
-import MainHeader from "../components/MainHeader";
+import { bindActionCreators } from "redux";
+
+import AdminHeader from "../components/AdminHeader";
+import Sidebar from "../components/Sidebar";
+import { userActions } from "../_actions/user.actions";
 
 const drawerWidth = 240;
 
@@ -28,7 +31,7 @@ const styles = theme => ({
   }
 });
 
-class MainLayout extends Component {
+class AdminLayout extends Component {
 
   state =  {
     open: false
@@ -45,23 +48,34 @@ class MainLayout extends Component {
     return (
       <Fragment>
         <div className={classes.root}>
-          <MainHeader />
-          <Grid container justify="center" alignItems="center" spacing={16}>
-            <main className={classNames(classes.content, {[classes.contentShift]: this.state.open})}>
-              {children}
-            </main>
-          </Grid>
+          <AdminHeader
+            logout={this.props.logout}
+            handleToggleDrawer={this.handleToggleDrawer}
+          />
+          <main
+            className={classNames(classes.content, {
+              [classes.contentShift]: this.state.open
+            })}
+          >
+            {children}
+          </main>
         </div>
+        <Sidebar open={this.state.open} drawerWidth={drawerWidth} />
       </Fragment>
     );
   }
 }
 
 const mapDispatchToProps = dispatch => {
-
+  return bindActionCreators(
+    {
+      logout: () => userActions.logout()
+    },
+    dispatch
+  );
 };
 
 export default connect(
   null,
   mapDispatchToProps
-)(withStyles(styles)(MainLayout));
+)(withStyles(styles)(AdminLayout));

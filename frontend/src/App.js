@@ -9,19 +9,32 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import { MuiThemeProvider } from "@material-ui/core/styles";
 import { connect } from "react-redux";
 
-import Home from "./containers/Home";
+import Home from "./containers/home/Home";
+import Dashboard from "./containers/Dashboard";
 import Users from "./containers/Users";
 import LoginPage from "./containers/Signin";
 
+import AdminLayout from "./layouts/AdminLayout";
 import MainLayout from "./layouts/MainLayout";
-import EmptyLayout from "./layouts/EmptyLayout";
 
 const NotFound = () => {
   return <div>NotFound</div>;
 };
 
+const AdminRoute = ({ component: Component, ...rest }) => {
+  return (
+    <Route
+      {...rest}
+      render={matchProps => (
+        <AdminLayout>
+          <Component {...matchProps} />
+        </AdminLayout>
+      )}
+    />
+  );
+};
 
-const DashboardRoute = ({ component: Component, ...rest }) => {
+const MainRoute = ({ component: Component, ...rest }) => {
   return (
     <Route
       {...rest}
@@ -29,19 +42,6 @@ const DashboardRoute = ({ component: Component, ...rest }) => {
         <MainLayout>
           <Component {...matchProps} />
         </MainLayout>
-      )}
-    />
-  );
-};
-
-const EmptyRoute = ({ component: Component, ...rest }) => {
-  return (
-    <Route
-      {...rest}
-      render={matchProps => (
-        <EmptyLayout>
-          <Component {...matchProps} />
-        </EmptyLayout>
       )}
     />
   );
@@ -56,27 +56,30 @@ class App extends Component {
     const { auth } = this.props;
 
     return (
-        <MuiThemeProvider>
-          <CssBaseline />
-          <div style={{ height: "100vh" }}>
-            <Router>
-              {auth.authenticate ? (
-                <Switch>
-                  <DashboardRoute path="/dashboard" component={Home} />
-                  <DashboardRoute path="/users" component={Users} />
-                  <Route path="/signin" render={() => <Redirect to="/" />} />
-                  <DashboardRoute exact path="/" component={Home} />
-                  <EmptyRoute component={NotFound} />
-                </Switch>
-              ) : (
-                <Switch>
-                  <EmptyRoute path="/signin" component={LoginPage} />
-                  <Redirect to="/signin" />
-                </Switch>
-              )}
-            </Router>
-          </div>
-        </MuiThemeProvider>
+      <MuiThemeProvider>
+        <CssBaseline />
+        <div style={{ height: "100vh" }}>
+          <Router>
+            {auth.authenticate ? (
+              <Switch>
+                <AdminRoute path="/dashboard" component={Dashboard} />
+                <AdminRoute path="/users" component={Users} />
+                <Route path="/signin" component={LoginPage} />
+                <Route path="/adminlogin" render={() => <Redirect to="/dashboard" />} />
+                <Route path="/" render={() => <Redirect to="/dashboard" />} />
+                <MainRoute component={NotFound} />
+              </Switch>
+            ) : (
+              <Switch>
+                <Route path="/studentlogin" render={() => <div>The Order Placement page is not yet implemented. </div>} />
+                <Route path="/adminlogin" component={LoginPage}/>
+                <MainRoute exact path="/" component={Home} />
+                <Redirect to="/" />
+              </Switch>
+            )}
+          </Router>
+        </div>
+      </MuiThemeProvider>
     );
   }
 }
