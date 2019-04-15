@@ -3,17 +3,11 @@ from flask_mail import Message
 from flask_sendgrid import SendGrid
 
 
-def send_email(from_email='someone@yourdomain.com',to_email='test@example.com',
-    subject='Subject', text = 'Body'):
-    
-    #if not isinstance(to_email, (tuple, list)):
-        #to_email = [to_email]
-
-    #msg = Message(subject=subject, recipients=to_email, sender=from_email)
-    #msg.html = render_template(template, **ctx)
-
-    #msg.send('')
-
-
-
-#subject: str, recipients: list, template, sender=None, **ctx
+def send_email(default_email, to_email, subject_line, text_body):
+    # Call Sendgrid's send_email method to send an email
+    mail.send_email(
+        from_email = default_email,
+        to_email = to_email,
+        subject = subject_line
+        text = text_body,
+    )
