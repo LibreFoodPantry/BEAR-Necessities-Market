@@ -15,7 +15,7 @@ Vagrant.configure("2") do |config|
   config.vm.network "forwarded_port", guest: 3007, host: 8088
   config.vm.network "forwarded_port", id: "ssh", guest: 22, host: 9022
 
-  config.vm.synced_folder ".", "/vagrant"
+  config.vm.synced_folder ".", "/home/vagrant/BEAR-Necessities-Market/"
 
   config.vm.provision "shell", inline: <<-SHELL
     #!/usr/bin/env bash
@@ -29,12 +29,12 @@ Vagrant.configure("2") do |config|
     sudo curl -L https://github.com/docker/compose/releases/download/1.17.1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
     sudo chmod +x /usr/local/bin/docker-compose
 
-    cd /vagrant && npm install --no-bin-links
-    cd /vagrant && export REACT_APP_USERS_SERVICE_URL=http://localhost
+    cd /home/vagrant/BEAR-Necessities-Market/ && npm install --no-bin-links
+    cd /home/vagrant/BEAR-Necessities-Market/ && export REACT_APP_USERS_SERVICE_URL=http://localhost
   SHELL
 
-  config.vm.provision "shell", inline: "cd /vagrant && sudo docker-compose up -d", run: "always"
-  config.vm.provision "shell", inline: "cd /vagrant && sudo docker-compose ps", run: "always"
+  config.vm.provision "shell", inline: "cd /home/vagrant/BEAR-Necessities-Market/ && sudo docker-compose up --build -d", run: "always"
+  config.vm.provision "shell", inline: "cd /home/vagrant/BEAR-Necessities-Market/ && sudo docker-compose ps", run: "always"
 
   #config.vm.network "private_network", type: "dhcp"
   #  type: "nfs",
