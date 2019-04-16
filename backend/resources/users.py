@@ -4,7 +4,7 @@ from flask_jwt_extended import jwt_required
 from flask_api.status import *
 
 # [App]
-from backend.models.users import UserModel
+from ..models.users import UserModel
 
 
 api = Namespace('users', description='Users related operations')

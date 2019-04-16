@@ -11,7 +11,7 @@ from flask_jwt_extended import (
 )
 
 # [App]
-from backend.models.users import UserModel
+from ..models.users import UserModel
 
 
 api = Namespace('auth', description='Auth related operations')

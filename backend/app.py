@@ -1,22 +1,20 @@
 # [Flask]
 from flask import Flask
-from flask_mail import Mail
 from flask_restplus import Api
 
 # [App]
-from backend.extensions import db, migrate, bcrypt, jwt
-from backend.config import ProductionConfig
-from backend.resources import DEFAULT
-from backend import commands
-from backend.resources.users import api as users_namespace
-from backend.resources.auth import api as auth_namespace
+from .extensions import db, migrate, bcrypt, jwt
+from .config import ProductionConfig
+from .resources import DEFAULT
+from . import commands
+from .resources.users import api as users_namespace
+from .resources.auth import api as auth_namespace
 
 # [Python]
 import logging
 
 
 logger = logging.getLogger(__name__)
-mail = Mail()
 
 
 def create_app(config_object=ProductionConfig):

@@ -1,5 +1,5 @@
 # [App]
-from backend.extensions import db, bcrypt
+from ..extensions import db, bcrypt
 
 # [Python]
 import datetime
