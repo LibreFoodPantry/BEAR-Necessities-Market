@@ -1,0 +1,9 @@
+*.ini eol=lf
+*.js eol=lf
+*.json eol=lf
+*.lock eol=lf
+*.md eol=lf
+*.py eol=lf
+*.rb eol=lf
+*.txt eol=lf
+*.yml eol=lf
