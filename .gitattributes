@@ -217,3 +217,13 @@ Procfile    text
 ## EXECUTABLES
 *.exe binary
 *.pyc binary
+
+## GITIGNORE AND MACOS ICON FILES
+# /.gitignore.d/macOS.gitignore contains a rule to ignore Icon\r\r.
+# Normalizing the EOL on this file will interfer with the carriage returns at
+# the end of Icon\r\r. So tell git to not normalize EOLs on this file.
+/.gitignore.d/macOS.gitignore -text
+
+# /.gitignore is generated from /.gitignore.d/*. So it too contains Icon\r\r.
+# Tell git to not normalize EOLs on this file too.
+/.gitignore -text
