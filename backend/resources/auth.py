@@ -109,7 +109,7 @@ class TokenRefresh(Resource):
 
 
 @api.route('/password/reset/', methods=['POST'])
-class TokenRefresh(Resource):
+class ForgotPasswordView(Resource):
     """ Send reset link to users email client """
     
     def post(self):
