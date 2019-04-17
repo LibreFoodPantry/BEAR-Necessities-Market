@@ -12,6 +12,10 @@ from flask_jwt_extended import (
 
 # [App]
 from backend.models.users import UserModel
+from backend.utils.tokens import (
+    create_token,
+    verify_token
+)
 
 
 api = Namespace('auth', description='Auth related operations')
@@ -102,3 +106,25 @@ class TokenRefresh(Resource):
         # return a non-fresh token for the user
         new_token = create_access_token(identity=current_user, fresh=False)
         return jsonify(access_token=new_token), HTTP_200_OK
+
+
+@api.route('/password/reset/', methods=['POST'])
+class TokenRefresh(Resource):
+    """ Send reset link to users email client """
+    
+    def post(self):
+        
+        # Get email from json payload
+        post_data = request.get_json()
+
+        email = post_data.get('email', None)
+        user = UserModel.find_by_email(email)
+        
+        # If the user exists, send them email
+        # with secure token
+        if user:
+            # Create encrypted user token
+            token = create_token(user)
+            
+            # Send email to user
+            pass
