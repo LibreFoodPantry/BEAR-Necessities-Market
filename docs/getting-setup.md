@@ -48,6 +48,14 @@ source ENV/bin/activate
 
 Consult the official docs [here][virtualenv].
 
+**If ujson fails to install**
+
+ujson contains C++ code that needs to be compiled in the background. If your machine does not have a C++ compiler,
+the installation will error out. 
+- For Windows: Follow [this link][ujson-win] and download the "Build Tools for Visual Studio 2019" under the
+  "Tools for Visual Studio 2019" tab.
+- For Mac: 
+
 
 ### Step 6. Install dependencies
 
@@ -98,3 +106,4 @@ Migrations are what programmatically turn your python models into database table
 [python]: https://www.python.org/downloads/
 [pip]: https://pip.pypa.io/en/stable/installing/
 [virtualenv]: https://virtualenv.pypa.io/en/latest/userguide/
+[ujson-win]: https://visualstudio.microsoft.com/downloads/
