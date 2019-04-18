@@ -21,7 +21,7 @@ Vagrant.configure("2") do |config|
 
     sudo apt-get update
     curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
-    sudo apt-get install -y --allow-unauthenticated nano unzip ufw htop nodejs
+    sudo apt-get install -y --allow-unauthenticated nano unzip ufw htop nodejs python3-dev
 
     sudo apt-get install python3-setuptools
     sudo easy_install3 pip
