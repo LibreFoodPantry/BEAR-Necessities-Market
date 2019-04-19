@@ -19,16 +19,24 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", inline: <<-SHELL
     #!/usr/bin/env bash
 
+    echo "============= Downloading and installing developer packages ============= "
     sudo apt-get update
+    # Node
     curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
-    sudo apt-get install -y --allow-unauthenticated nano unzip ufw htop nodejs python3-dev
-
-    sudo apt-get install python3-setuptools
+    # Other developer packages    
+    sudo apt-get install -y --allow-unauthenticated nano unzip ufw htop nodejs python3-dev python3-setuptools
     sudo easy_install3 pip
+    # Yarn
+    sudo npm install -g yarn
 
+    echo "============= Installing project's dependencies ========================="
+    cd /home/vagrant/BEAR-Necessities-Market 
+    sudo npm install --no-bin-links
+    sudo npm install react-scripts@2.1.2 -g --silent
+    sudo pip install -r requirements.txt
     cd /home/vagrant/BEAR-Necessities-Market && sudo npm install --no-bin-links
     cd /home/vagrant/BEAR-Necessities-Market && sudo pip install -r requirements.txt
-    
+
   SHELL
 
   # Config specific to VirtualBox:
