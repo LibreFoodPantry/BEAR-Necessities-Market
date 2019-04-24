@@ -2,6 +2,7 @@
 from flask import Flask
 from flask_mail import Mail
 from flask_restplus import Api
+from flask_sendgrid import SendGrid
 
 # [App]
 from backend.extensions import db, migrate, bcrypt, jwt
@@ -16,7 +17,6 @@ import logging
 
 
 logger = logging.getLogger(__name__)
-mail = Mail()
 
 
 def create_app(config_object=ProductionConfig):
@@ -38,7 +38,7 @@ def create_app(config_object=ProductionConfig):
     register_extensions(app)
     register_commands(app)
     create_mail_server(app)
-    
+
     print(app.url_map)
     
     return app
@@ -74,4 +74,6 @@ def register_commands(app: Flask):
 
 def create_mail_server(app: Flask):
     """ Setup flask mailing server """
-    mail.init_app(app)
+    # Check for Testing state - set up Sendgrid if not
+    if not app.config['TESTING']:
+        app.mail = SendGrid(app)

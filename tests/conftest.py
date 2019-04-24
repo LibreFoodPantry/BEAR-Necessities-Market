@@ -48,3 +48,5 @@ def init_database():
     yield db  # This is where the testing happens!
 
     db.drop_all()
+
+

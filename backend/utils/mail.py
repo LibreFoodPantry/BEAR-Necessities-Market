@@ -1,12 +1,13 @@
 from flask import current_app, render_template
 from flask_mail import Message
+from flask_sendgrid import SendGrid
 
 
-def send_mail(subject: str, recipients: list, template, sender=None, **ctx):
-    if not isinstance(recipients, (tuple, list)):
-        recipients = [recipients]
-
-    msg = Message(subject=subject, recipients=recipients, sender=sender)
-    msg.html = render_template(template, **ctx)
-
-    msg.send('')
+def send_email(default_email, to_email, subject_line, text_body):
+    # Call Sendgrid's send_email method to send an email
+    mail.send_email(
+        from_email = default_email,
+        to_email = to_email,
+        subject = subject_line
+        text = text_body,
+    )

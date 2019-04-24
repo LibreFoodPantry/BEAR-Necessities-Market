@@ -46,6 +46,8 @@ cd ..
 
 pip install -r requirements.txt
 export FLASK_APP=manage.py
+export SENDGRID_API_KEY="<your api key>"
+export SENDGRID_DEFAULT_FROM="<your default email address>"
 flask db upgrade
 flask run
 
@@ -124,7 +126,7 @@ The BEAR-Necessities-Market application uses [Heroku][heroku] to deploy, manage,
 ├── frontend
 │   ├── build
 │   │      // Production build, entrypoint at build/index.html
-│   │   
+│   │  
 │   ├── package.json
 │   │      // React dependencies list
 │
@@ -147,7 +149,7 @@ The BEAR-Necessities-Market application uses [Heroku][heroku] to deploy, manage,
 │   │   ├── components
 │   │   │      // Core reusable components
 │   │   ├── containers
-│   │   │      // Main application components 
+│   │   │      // Main application components
 │   │   ├── layouts
 │   │   │      // Application layouts
 │   ├── tests
@@ -163,7 +165,10 @@ The BEAR-Necessities-Market application uses [Heroku][heroku] to deploy, manage,
 │      // Database migration tracking
 │
 ├── requirements.txt
-│      // backend application dependencies list
+│      // frozen dependencies
+│
+├── requirements-to-freeze.txt
+│      // direct backend application dependencies list
 │
 ├── tests
 │      // Backend unit & functional tests
