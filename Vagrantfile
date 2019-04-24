@@ -32,10 +32,10 @@ Vagrant.configure("2") do |config|
     echo "============= Installing project's dependencies ========================="
     cd /home/vagrant/BEAR-Necessities-Market 
     sudo npm install --no-bin-links
-    sudo npm install react-scripts@2.1.2 -g --silent
     sudo pip install -r requirements.txt
-    cd /home/vagrant/BEAR-Necessities-Market && sudo npm install --no-bin-links
-    cd /home/vagrant/BEAR-Necessities-Market && sudo pip install -r requirements.txt
+    cd /home/vagrant/BEAR-Necessities-Market/frontend
+    sudo npm install react-scripts@2.1.2 -g --silent
+  SHELL
 
   SHELL
 
