@@ -57,6 +57,11 @@ cd frontend
 yarn
 ```
 
+**What does this do?**
+
+- The pip install, installs all dependencies to run the backend flask server
+- The `yarn` command installs all node_modules for the frontend react server
+
 **If ujson fails to install**
 
 ujson contains C++ code that needs to be compiled in the background. If your machine does not have a C++ compiler,
@@ -67,13 +72,6 @@ the installation will error out.
   ```bash
   xcode-select --install
   ```
-
-
-**What does this do?**
-
-- The pip install, installs all dependencies to run the backend flask server
-- The `yarn` command installs all node_modules for the frontend react server
-
 
 ### Step 8. Export environment variables
 
