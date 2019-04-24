@@ -32,26 +32,39 @@ Some overview description will go here
 
 > Or take a look at our detailed [getting started][getting-started] instructions.
 
-First, get a recent version of [Node.js][node] and [Python 3.4+][python]
+First get a stable version of VirtualBox (5.2 and above recommended).
 
-```bash
+Install Vagrant https://www.vagrantup.com/downloads.html
 
-curl -o- -L https://yarnpkg.com/install.sh | bash -s
 git clone https://github.com/LibreFoodPantry/BEAR-Necessities-Market.git
-cd BEAR-Necessities-Market/fronend
 
-yarn
-yarn run build
-cd ..
+Boot up Vagrant
+  ```
+  vagrant up
+  ```
+Go into the vagrant box:
+  ```
+  vagrant ssh
+  ```
+Go into the project directory:
+  ```
+  cd BEAR-Necessities-Market
+  ```
+Run the flask Application
+  ```
+  export FLASK_APP-manage.py
+  flask db upgrade
+  flask run
+  ```
+Open another terminal window and make sure you're still inside vagrant
+  ```
+  cd BEAR-Necessities-Market/frontend
+  sudo yarn build
 
-pip install -r requirements.txt
-export FLASK_APP=manage.py
-flask db upgrade
-flask run
+  # Go to http://localhost:8000
+  ```
 
-# Go to http://localhost:5000
-```
-
+### IMPORTANT: ALL GIT COMMITS MUST BE MADE OUTSIDE OF VAGRANT
 
 ## Tech Stack
 
