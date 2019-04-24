@@ -35,8 +35,7 @@ Vagrant.configure("2") do |config|
     sudo pip install -r requirements.txt
     cd /home/vagrant/BEAR-Necessities-Market/frontend
     sudo npm install react-scripts@2.1.2 -g --silent
-  SHELL
-
+    sudo yarn
   SHELL
 
   # Config specific to VirtualBox:
