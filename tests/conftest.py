@@ -29,6 +29,11 @@ def client(app):
     with app.test_client() as client:
         yield client
 
+@pytest.yield_fixture(scope='session')
+def mock_sendgrid(app):
+    with app.test_create_sendgrid() as fake_sendgrid:
+        yield fake_sendgrid
+
 
 @pytest.fixture(scope='module')
 def init_database():
@@ -48,3 +53,5 @@ def init_database():
     yield db  # This is where the testing happens!
 
     db.drop_all()
+
+

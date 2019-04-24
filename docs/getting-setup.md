@@ -77,6 +77,8 @@ the installation will error out.
 
 ```bash
 export FLASK_APP=manage.py
+export SENDGRID_API_KEY="<your api key>"
+export SENDGRID_DEFAULT_FROM="<your default email address>"
 ```
 
 **What does this do?**
