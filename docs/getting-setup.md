@@ -48,6 +48,15 @@ source ENV/bin/activate
 
 Consult the official docs [here][virtualenv].
 
+
+### Step 7. Install dependencies
+
+```bash
+pip install -r requirements.txt --no-cache-dir
+cd frontend
+yarn
+```
+
 **If ujson fails to install**
 
 ujson contains C++ code that needs to be compiled in the background. If your machine does not have a C++ compiler,
@@ -59,14 +68,6 @@ the installation will error out.
   xcode-select --install
   ```
 
-
-### Step 7. Install dependencies
-
-```bash
-pip install -r requirements.txt --no-cache-dir
-cd frontend
-yarn
-```
 
 **What does this do?**
 
