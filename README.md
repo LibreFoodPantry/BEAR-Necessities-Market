@@ -32,11 +32,12 @@ Some overview description will go here
 
 > Or take a look at our detailed [getting started][getting-started] instructions.
 
-Install stable version of VirtualBox (5.2 and above are recommended). ([Link](https://www.virtualbox.org/wiki/Downloads))
+Install required software:
+- Install stable version of VirtualBox (5.2 and above are recommended). ([Link](https://www.virtualbox.org/wiki/Downloads))
+- Install Vagrant ([Link](https://www.vagrantup.com/downloads.html))
 
-Install Vagrant, ([Link](https://www.vagrantup.com/downloads.html))
-
-`git clone https://github.com/LibreFoodPantry/BEAR-Necessities-Market.git`
+Clone git project:
+- `git clone https://github.com/LibreFoodPantry/BEAR-Necessities-Market.git`
 
 Boot up Vagrant
   ```
