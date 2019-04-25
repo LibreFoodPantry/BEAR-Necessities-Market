@@ -1,3 +1,5 @@
+# pin sendgrid until flask_sendgrid fixes their code: https://github.com/frankV/flask-sendgrid/issues/15
+sendgrid < 6.0.0
 pytest
 flask
 flask_jwt_extended
@@ -7,3 +9,4 @@ flask_migrate
 flask_bcrypt
 flask_api
 ujson
+flask_sendgrid
