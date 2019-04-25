@@ -43,7 +43,7 @@ Boot up Vagrant:
   ```
   vagrant up
   ```
-Go into the vagrant box:
+Go into the Vagrant box:
   ```
   vagrant ssh
   ```
@@ -51,9 +51,9 @@ Go into the project directory:
   ```
   cd BEAR-Necessities-Market
   ```
-Run the flask Application:
+Run the flask application:
   ```
-  export FLASK_APP-manage.py
+  export FLASK_APP=manage.py
   flask db upgrade
   flask run
   ```
