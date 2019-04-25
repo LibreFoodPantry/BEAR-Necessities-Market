@@ -1,1 +1,6 @@
-Generic single-database configuration.
+The scripts to run to allow alembic to convert one version of the models to another in the underlying database.
+
+Known Issues: When using SQLite, alter commands used can only add columns or change column names.
+
+If encounter errors in applying a series of migrations and have no data to be migrated: 
+Remove all files from the "versions" folder and reinitialize the database with Flask DB Init, and Flask DB upgrade.
