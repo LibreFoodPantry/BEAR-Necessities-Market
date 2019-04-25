@@ -39,7 +39,7 @@ Install required software:
 Clone git project:
 - `git clone https://github.com/LibreFoodPantry/BEAR-Necessities-Market.git`
 
-Boot up Vagrant
+Boot up Vagrant:
   ```
   vagrant up
   ```
@@ -51,13 +51,13 @@ Go into the project directory:
   ```
   cd BEAR-Necessities-Market
   ```
-Run the flask Application
+Run the flask Application:
   ```
   export FLASK_APP-manage.py
   flask db upgrade
   flask run
   ```
-Open another terminal window
+Open another terminal window:
   ```
   # This is in new terminal window.
 
