@@ -50,8 +50,6 @@ def register_extensions(app: Flask):
     # Register database and models
     with app.app_context():
         db.init_app(app)
-        db.drop_all()
-        db.create_all()
 
     # Register JWT token auth
     jwt.init_app(app)
