@@ -30,8 +30,6 @@ Some overview description will go here
 
 ### Quick Setup
 
-> Or take a look at our detailed [getting started][getting-started] instructions.
-
 Install required software:
 - Install stable version of VirtualBox (5.2 and above are recommended). ([Link](https://www.virtualbox.org/wiki/Downloads))
 - Install Vagrant ([Link](https://www.vagrantup.com/downloads.html))
