@@ -26,6 +26,9 @@
     },
     "FLASK_RUN_PORT": {
       "required": true
+    },
+    "DATABASE_URL": {
+      "required": true
     }
   },
   "formation": {
