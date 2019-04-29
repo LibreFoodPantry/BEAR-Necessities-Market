@@ -5,5 +5,7 @@ This file (test_mail.py) contains the unit tests for the Sendgrid mail functiona
 """
 
 
-def test_create_Sendgrid():
+def test_create_sendgrid():
+    
     pass
+

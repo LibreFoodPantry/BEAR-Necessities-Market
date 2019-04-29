@@ -36,7 +36,7 @@ git clone https://github.com/LibreFoodPantry/BEAR-Necessities-Market.git
 cd BEAR-Necessities-Market
 ```
 
-### Step 5. Install & start virtualenv
+### Step 6. Install & start virtualenv
 
 ```bash
 pip install virtualenv
@@ -49,7 +49,7 @@ source ENV/bin/activate
 Consult the official docs [here][virtualenv].
 
 
-### Step 6. Install dependencies
+### Step 7. Install dependencies
 
 ```bash
 pip install -r requirements.txt --no-cache-dir
@@ -62,8 +62,18 @@ yarn
 - The pip install, installs all dependencies to run the backend flask server
 - The `yarn` command installs all node_modules for the frontend react server
 
+**If ujson fails to install**
 
-### Step 7. Export environment variables
+ujson contains C++ code that needs to be compiled in the background. If your machine does not have a C++ compiler,
+the installation will error out. 
+- For Windows: Follow [this link][ujson-win] and download the "Build Tools for Visual Studio 2019" under the
+  "Tools for Visual Studio 2019" tab.
+- For Mac: Open terminal and run the following command to install the command line tools to compile C++.
+  ```bash
+  xcode-select --install
+  ```
+
+### Step 8. Export environment variables
 
 ```bash
 export FLASK_APP=manage.py
@@ -76,7 +86,7 @@ export SENDGRID_DEFAULT_FROM="<your default email address>"
 This variable sets `flask run` to the application's entry point: manage.py
 
 
-### Step 8. Run migrations
+### Step 9. Run migrations
 
 ```bash
 flask db upgrade
@@ -100,3 +110,4 @@ Migrations are what programmatically turn your python models into database table
 [python]: https://www.python.org/downloads/
 [pip]: https://pip.pypa.io/en/stable/installing/
 [virtualenv]: https://virtualenv.pypa.io/en/latest/userguide/
+[ujson-win]: https://visualstudio.microsoft.com/downloads/

@@ -1,9 +1,9 @@
-["pantry"](https://thenounproject.com/search/?q=food%20pantry&i=489212#) icon by David Carrero from the [the Noun Project](https://thenounproject.com/)
+﻿["pantry"](https://thenounproject.com/search/?q=food%20pantry&i=489212#) icon by David Carrero from the [the Noun Project](https://thenounproject.com/)
 <p align="center"><img width=18% src="https://github.com/hawzie197/BEAR-Necessities-Market/blob/master/media/logo.png"></p>
 <p align="center"><img width=65% src="https://github.com/hawzie197/BEAR-Necessities-Market/blob/master/media/logo-text.png"></p>
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-[![GitHub license](https://img.shields.io/badge/license-GPL%20V3-blue.svg)](https://github.com/LibreFoodPantry/BEAR-Necessities-Market/blob/master/LICENSE.md)
+[![GitHub license](https://img.shields.io/badge/license-GPL%20V3-blue.svg)](https://github.com/LibreFoodPantry/BEAR-Necessities-Market/blob/master/LICENSE)
 [![Build Status](https://travis-ci.com/LibreFoodPantry/BEAR-Necessities-Market.svg?branch=master)](https://travis-ci.com/LibreFoodPantry/BEAR-Necessities-Market)
 [![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)](https://www.python.org/downloads/release/python-360/)
 [![npm version](https://img.shields.io/npm/v/react.svg?style=flat)](https://www.npmjs.com/package/react)
