@@ -4,7 +4,7 @@ import unicodedata
 from flask_sqlalchemy.model import camel_to_snake_case
 
 from .decorators import was_decorated_without_parenthesis
-from .mail import send_mail
+
 
 
 # def slugify(string):

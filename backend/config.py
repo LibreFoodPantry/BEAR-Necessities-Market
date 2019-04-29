@@ -8,7 +8,7 @@ directory named data-x.sqlite where x is the current config name.
 
 SECRET_KEY
 DEV_DATABASE_URL
-PRODUCTION_DATABASE_URL
+DATABASE_URL
 FLASK_CONFIG (will be development, testing, production or default)
 """
 
@@ -18,10 +18,9 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 class Config:
     APP_NAME = "Libre Food Bank"
     APP_ID = ""
-    SUPPORT_EMAIL = ""
+    SUPPORT_EMAIL = os.environ.get('SUPPORT_EMAIL')
     VERSION = "1.0.0"
-    MAIL_SERVER = ""
-    SECRET_KEY = os.urandom(24)
+    SECRET_KEY = os.environ.get('SECRET_KEY', os.urandom(24))
     STATIC_FOLDER = '../../frontend/build'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     JWT_AUTH_USERNAME_KEY = 'email'
@@ -54,7 +53,7 @@ class TestingConfig(Config):
 
 class ProductionConfig(Config):
     ENV = 'prod'
-    SQLALCHEMY_DATABASE_URI = os.environ.get('PRODUCTION_DATABASE_URL') or \
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
         'sqlite:///' + os.path.join(basedir, 'data.sqlite')
 
 
