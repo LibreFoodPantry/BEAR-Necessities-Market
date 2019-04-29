@@ -1,2 +1,2 @@
-web: flask run --host=0.0.0.0
+web: gunicorn manage:app
 release: python manage.py db upgrade
