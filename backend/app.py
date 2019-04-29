@@ -51,6 +51,7 @@ def register_extensions(app: Flask):
     with app.app_context():
         db.init_app(app)
         migrate.init_app(app, db)
+        db.create_all()
 
     # Register JWT token auth
     jwt.init_app(app)
