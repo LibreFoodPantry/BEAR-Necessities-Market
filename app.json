@@ -23,6 +23,9 @@
     },
     "FLASK_APP": {
       "required": true
+    },
+    "FLASK_RUN_PORT": {
+      "required": true
     }
   },
   "formation": {
