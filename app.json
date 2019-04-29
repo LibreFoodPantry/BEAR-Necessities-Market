@@ -20,6 +20,9 @@
     },
     "SUPPORT_EMAIL": {
       "required": true
+    },
+    "FLASK_APP": {
+      "required": true
     }
   },
   "formation": {
