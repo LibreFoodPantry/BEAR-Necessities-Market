@@ -57,7 +57,7 @@ Run the flask application:
   export SENDGRID_API_KEY="<your api key>"
   export SENDGRID_DEFAULT_FROM="<your default email address>"
   flask db upgrade
-  flask run
+  flask run --host=0.0.0.0
   ```
 Open another terminal window:
   ```
