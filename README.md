@@ -30,6 +30,9 @@ Some overview description will go here
 
 ### Quick Setup
 
+Minimum System Requirements (Vagrant):
+- 6 GB of RAM
+
 Install required software:
 - Install stable version of VirtualBox (5.2 and above are recommended). ([Link](https://www.virtualbox.org/wiki/Downloads))
 - Install Vagrant ([Link](https://www.vagrantup.com/downloads.html))
@@ -37,27 +40,21 @@ Install required software:
 Clone git project:
 - `git clone https://github.com/LibreFoodPantry/BEAR-Necessities-Market.git`
 
-Boot up Vagrant:
+Booting up Vagrant and then running the Flask app:
   ```
+  # Make sure this terminal is in the same directory as the project, it looks for the `VagrantFile` file
+  # When you start up vagrant for the very first time, it will take some time. After that it should be much quicker
+
   vagrant up
-  ```
-Go into the Vagrant box:
-  ```
   vagrant ssh
-  ```
-Go into the project directory:
-  ```
   cd BEAR-Necessities-Market
-  ```
-Run the flask application:
-  ```
   export FLASK_APP=manage.py
   export SENDGRID_API_KEY="<your api key>"
   export SENDGRID_DEFAULT_FROM="<your default email address>"
   flask db upgrade
   flask run --host=0.0.0.0
   ```
-Open another terminal window:
+Open another terminal window in the same directory as the project:
   ```
   # This is in new terminal window.
 
@@ -66,6 +63,25 @@ Open another terminal window:
   sudo yarn build
 
   # Go to http://localhost:8000
+  ```
+
+To shutdown the vagrant box/VM machine:
+  ```
+  # Reminder that this command is not run inside the vagrant box (aka `vagrant ssh`)
+
+  vagrant halt
+  ```
+
+To suspend or put it to sleep:
+  ```
+  # Reminder that this command is not run inside the vagrant box (aka `vagrant ssh`)
+
+  vagrant suspend
+  ```
+
+To bring the vagrant box online again:
+  ```
+  vagrant up
   ```
 
 ### IMPORTANT: ALL GIT COMMITS MUST BE MADE OUTSIDE OF VAGRANT
