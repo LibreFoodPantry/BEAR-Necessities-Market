@@ -47,7 +47,6 @@ function login(username, password) {
 
 }
 
-
 /**
  *  Logout a user and return them to /signin
  */
