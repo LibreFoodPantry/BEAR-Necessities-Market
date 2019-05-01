@@ -12,10 +12,6 @@ from flask_jwt_extended import (
 
 # [App]
 from backend.models.users import UserModel
-from backend.utils.tokens import (
-    create_token,
-    verify_token
-)
 
 
 api = Namespace('auth', description='Auth related operations')
@@ -26,12 +22,12 @@ class RegistrationView(Resource):
     """ register a new user """
 
     def post(self):
-        
+
         post_data = request.get_json()
-        
+
         # Query to see if the user already exists
         user = UserModel.find_by_email(email=post_data.get('email', None))
-        
+
         # If user doesn't already exist, create a user
         if not user:
             try:
@@ -60,7 +56,7 @@ class RegistrationView(Resource):
 
 @api.route('/login/', methods=['POST'])
 class LoginView(Resource):
-    
+
     @staticmethod
     def authenticate(email, password):
         user = UserModel.find_by_email(email)
@@ -68,24 +64,24 @@ class LoginView(Resource):
             return user
         else:
             return None
-    
+
     def post(self):
         if not request.is_json:
             return jsonify({"msg": "Missing JSON in request."}), HTTP_400_BAD_REQUEST
 
         post_data = request.get_json()
-    
+
         email = post_data.get('email', None)
         password = post_data.get('password', None)
         if not email:
             return jsonify({"msg": "Missing email parameter."}), HTTP_400_BAD_REQUEST
         if not password:
             return jsonify({"msg": "Missing password parameter."}), HTTP_400_BAD_REQUEST
-    
+
         user = self.authenticate(email, password)
         if not user:
             return jsonify({"msg": "User not found."}), HTTP_404_NOT_FOUND
-    
+
         # Identity can be any data that is json serializable
         access_token = create_access_token(identity=email)
         refresh_token = create_refresh_token(identity=email)
@@ -102,29 +98,7 @@ class TokenRefresh(Resource):
     def get(self):
         # retrieve the user's identity from the refresh token using a Flask-JWT-Extended built-in method
         current_user = get_jwt_identity()
-        
+
         # return a non-fresh token for the user
         new_token = create_access_token(identity=current_user, fresh=False)
         return jsonify(access_token=new_token), HTTP_200_OK
-
-
-@api.route('/password/reset/', methods=['POST'])
-class ForgotPasswordView(Resource):
-    """ Send reset link to users email client """
-    
-    def post(self):
-        
-        # Get email from json payload
-        post_data = request.get_json()
-
-        email = post_data.get('email', None)
-        user = UserModel.find_by_email(email)
-        
-        # If the user exists, send them email
-        # with secure token
-        if user:
-            # Create encrypted user token
-            token = create_token(user)
-            
-            # Send email to user
-            pass

@@ -7,7 +7,6 @@ export const userActions = {
     login,
     logout,
     getAllUsers,
-    resetPassword
 };
 
 
@@ -48,27 +47,6 @@ function login(username, password) {
 
 }
 
-function resetPassword(email) {
-
-  return dispatch => {
-    // send user reset password link
-    userService.resetPassword(email)
-      .then(
-        res => {
-          dispatch({
-            type: userConstants.RESET_LINK_SUCCESS,
-          });
-        },
-        error => {
-          dispatch({
-            type: userConstants.RESET_LINK_FAILURE,
-            error
-          });
-          dispatch(alertActions.error(error));
-        }
-      );
-  }
-}
 
 /**
  *  Logout a user and return them to /signin

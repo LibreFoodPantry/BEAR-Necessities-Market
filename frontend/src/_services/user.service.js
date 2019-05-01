@@ -5,8 +5,7 @@ export const userService = {
     login,
     logout,
     getAllUsers,
-    getUserById,
-    resetPassword
+    getUserById
 };
 
 /**
@@ -51,21 +50,6 @@ function logout() {
     localStorage.removeItem('access_token');
     localStorage.removeItem('refresh_token');
 }
-
-/**
- * Send a reset link to a user allowing them to update their password.
- * @param email: string
- */
-function resetPassword(email) {
-    const requestOptions = {
-        method: 'POST'
-    };
-
-    return fetch(`/password/reset/`, requestOptions).then(() => {
-
-    });
-}
-
 
 /**
  * Request all users from the database.
