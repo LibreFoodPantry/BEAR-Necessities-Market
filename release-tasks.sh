@@ -8,4 +8,6 @@ flask db upgrade
 echo "Create react production build"
 ls
 pwd
+cd frontend
+npm i
 npm run build
