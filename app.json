@@ -1,0 +1,31 @@
+{
+  "addons": [
+    "heroku-postgresql"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "description": "",
+  "env": {
+    "SECRET_KEY": {
+      "required": true
+    },
+    "SENDGRID_API_KEY": {
+      "required": true
+    },
+    "SENDGRID_DEFAULT_FROM": {
+      "required": true
+    },
+    "SUPPORT_EMAIL": {
+      "required": true
+    }
+  },
+  "formation": {
+  },
+  "name": "BEAR-Necessities-Market",
+  "scripts": {
+  },
+  "stack": "heroku-18"
+}
