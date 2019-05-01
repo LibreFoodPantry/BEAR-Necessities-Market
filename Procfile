@@ -1,2 +1,2 @@
 web: gunicorn wsgi:application
-release: ./release-tasks.sh
+release: bash release-tasks.sh
