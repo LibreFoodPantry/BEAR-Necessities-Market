@@ -20,6 +20,15 @@
     },
     "SUPPORT_EMAIL": {
       "required": true
+    },
+    "FLASK_APP": {
+      "required": true
+    },
+    "FLASK_RUN_PORT": {
+      "required": true
+    },
+    "DATABASE_URL": {
+      "required": true
     }
   },
   "formation": {

@@ -28,7 +28,7 @@ def create_app(config_object=ProductionConfig):
     app.url_map.strict_slashes = False
 
     app.static_folder = '../frontend/build'
-    
+
     # Let flask know to serve react
     app.register_blueprint(DEFAULT)
 
@@ -40,21 +40,21 @@ def create_app(config_object=ProductionConfig):
     create_mail_server(app)
 
     print(app.url_map)
-    
+
     return app
 
 
 def register_extensions(app: Flask):
     """Register Flask extensions."""
-    
+
     # Register database and models
     with app.app_context():
         db.init_app(app)
         migrate.init_app(app, db)
-    
+
     # Register JWT token auth
     jwt.init_app(app)
-    
+
     # Registering application encryption
     bcrypt.init_app(app)
 
@@ -70,7 +70,7 @@ def register_commands(app: Flask):
     app.cli.add_command(commands.test)
     app.cli.add_command(commands.lint)
     app.cli.add_command(commands.clean)
-    
+
 
 def create_mail_server(app: Flask):
     """ Setup flask mailing server """
