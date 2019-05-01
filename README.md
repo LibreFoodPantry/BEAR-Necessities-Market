@@ -14,7 +14,7 @@
 
 ## Overview
 
-Some overview description will go here
+This project is a humanitarian free and open source software (HFOSS) web-system that allows food-insecure users to discreetly place orders for food, and supports the tracking, filling, and delivering of those orders. It is designed for a college or university-level institution to support and maintain a functioning nonperishable food pantry.
 
 
 ## Table of Contents
