@@ -5,6 +5,9 @@
   "buildpacks": [
     {
       "url": "heroku/python"
+    },
+    {
+      "url": "heroku/node"
     }
   ],
   "description": "",

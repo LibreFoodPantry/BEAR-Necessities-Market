@@ -6,5 +6,6 @@ flask db upgrade
 
 # Build the production react app
 echo "Create react production build"
-cd /frontend
+ls
+pwd
 npm run build
