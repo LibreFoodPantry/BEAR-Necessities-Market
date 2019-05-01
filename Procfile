@@ -1,2 +1,2 @@
 web: gunicorn wsgi:application
-release: python manage.py db upgrade
+release: ./release-tasks.sh
